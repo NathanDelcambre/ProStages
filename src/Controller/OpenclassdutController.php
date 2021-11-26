@@ -9,12 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class OpenclassdutController extends AbstractController
 {
     /**
-     * @Route("/openclassdut", name="openclassdut")
+     * @Route("/", name="Accueil")
      */
     public function index(): Response
     {
         return $this->render('openclassdut/index.html.twig', [
-            'controller_name' => 'OpenclassdutController',
+            'controller_name' => 'to accueil',
         ]);
     }
 }
