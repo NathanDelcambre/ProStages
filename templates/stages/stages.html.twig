@@ -22,34 +22,38 @@
 
         <div class="row">
             <div class="col-10 offset-1">
-                <div class="p-3 border bg-light">
-                    <div class="infostage">
-                        <h1>Le stage intitulé '{{ id }}'</h1><BR><BR>
-                        <h3>Nom : {{ id }}
-                        <h3>Activité : activité
-                        <h3>Formations : formations
-                        <h3>Mail de contact : mail@lecontact.fr<BR><BR>
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Le stage intitulé {{ id }}</h2>
                     </div>
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Description des missions
-                            </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <strong>Ici seront présentées les différentes missions</strong>
-                                <ul>
-                                    <li>Mission 1</li>
-                                    <li>Mission 2</li>
-                                    <li>Mission 3</li>
-                                    <li>Mission 4</li>
-                                </ul>
-                            </div>
+                    <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><h6>Nom : {{ id }}</li>
+                        <li class="list-group-item"> <h6>Activité : activité</li>
+                        <li class="list-group-item"><h6>Formations : formations</li>
+                        <li class="list-group-item"><h6>Mail de contact : mail@lecontact.fr</li>
+
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <b>Description des missions</b>
+                                </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>Ici seront présentées les différentes missions</strong>
+                                    <ul>
+                                        <li>Mission 1</li>
+                                        <li>Mission 2</li>
+                                        <li>Mission 3</li>
+                                        <li>Mission 4</li>
+                                    </ul>
+                                </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </ul>
                 </div>
             </div>
         </div>
