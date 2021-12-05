@@ -17,14 +17,40 @@
             </div>
         </div>
 
+
+{# Accordéon permettant d'accéder aux missions proposées par le stage #}
+
         <div class="row">
             <div class="col-10 offset-1">
                 <div class="p-3 border bg-light">
-                    <h1>Cette page affichera le descriptif du stage ayant pour identifiant '{{ id }}'</h1>
+                    <div class="infostage">
+                        <h1>Le stage intitulé '{{ id }}'</h1><BR><BR>
+                        <h3>Nom : {{ id }}
+                        <h3>Activité : activité
+                        <h3>Formations : formations
+                        <h3>Mail de contact : mail@lecontact.fr<BR><BR>
+                    </div>
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Description des missions
+                            </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>Ici seront présentées les différentes missions
+                            </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
+crossorigin="anonymous"></script>
 
 {% endblock %}
