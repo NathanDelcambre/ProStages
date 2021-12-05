@@ -27,7 +27,12 @@
         {% endblock %}
     </header>
 
-    {% block body %}{% endblock %}
+    {% block body %}
+    
+        {% block filtres %}{% endblock %}
+        {% block corps %}{% endblock %}
+
+    {% endblock %}
     </body>
 
 </html>
