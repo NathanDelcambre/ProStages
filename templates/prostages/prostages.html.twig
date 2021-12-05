@@ -13,7 +13,15 @@
     
     <a href='./entreprises'>Entreprises</a><BR>
     <a href='./formations'>Formations</a><BR>
-    <a href='./stages/patate'>Stages</a>
+    
+    <p>Liste des stages disponibles :</p>
+
+    <div>
+        <ul>
+        {% for stage in tabStages %}
+            <li><a href=./stages/{{ stage }}>Stage {{ stage }}</a></li>
+        {% endfor %}
+        </ul>
 
 </div>
 {% endblock %}
