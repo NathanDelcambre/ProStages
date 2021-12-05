@@ -3,12 +3,28 @@
 {% block title %}Stages{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Cette page affichera le descriptif du stage ayant pour identifiant {{ id }}</h1>
-</div>
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-10 offset-1">
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../">Accueil</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Stages > {{ id }}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-10 offset-1">
+                <div class="p-3 border bg-light">
+                    <h1>Cette page affichera le descriptif du stage ayant pour identifiant '{{ id }}'</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 {% endblock %}
