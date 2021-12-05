@@ -21,9 +21,43 @@
 
                 <div class="col-3 offset-1">
                     <div class="p-3 border bg-light">
-                        <h2>------- Filtres --------</h2>
-                        <a href='./entreprises'>Entreprises</a><BR>
-                        <a href='./formations'>Formations</a><BR>
+                        <h2>---------- Filtres -----------</h2>
+                        <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <h5>Entreprises</h5><BR>
+                            </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                            <ul>
+                                {% for entreprise in tabEntreprises %}
+                                    <li><a href=./entreprises/{{ entreprise }}>{{ entreprise }}</a></li>
+                                {% endfor %}
+                            </ul>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="accordion" id="accordionExample2">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                <h5>Formations</h5><BR>
+                            </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample2">
+                            <div class="accordion-body">
+                            <ul>
+                                {% for formation in tabFormations %}
+                                    <li><a href=./formations/{{ formation }}>{{ formation }}</a></li>
+                                {% endfor %}
+                            </ul>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -41,5 +75,10 @@
                 
             </div>
         </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
+crossorigin="anonymous"></script>
 
 {% endblock %}

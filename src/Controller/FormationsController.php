@@ -9,12 +9,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class FormationsController extends AbstractController
 {
     /**
-     * @Route("/formations", name="formations")
+     * @Route("/formations/{id}", name="formations")
      */
-    public function index(): Response
+    public function index($id): Response
     {
         return $this->render('formations/formations.html.twig', [
             'controller_name' => 'FormationsController',
+            'id' => $id,
         ]);
     }
 }
