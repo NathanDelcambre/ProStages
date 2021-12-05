@@ -2,24 +2,40 @@
 
 {% block title %}Bienvenue sur Prostages!{% endblock %}
 
+
 {% block body %}
 
-    {% block contenu %}
+        <div class="container-fluid">
 
-            <h1>Bienvenue sur la page d'accueil ! ✅</h1>
-    
-            <a href='./entreprises'>Entreprises</a><BR>
-            <a href='./formations'>Formations</a><BR>
-    
-            <p>Liste des stages disponibles :</p>
-
-            <div>
-                <ul>
-                    {% for stage in tabStages %}
-                        <li><a href=./stages/{{ stage }}>Stage {{ stage }}</a></li>
-                    {% endfor %}
-                </ul>
+            <div class="row">
+                <div class="col-12">
+                    <h1>Bienvenue sur la page d'accueil !</h1>
+                </div>
             </div>
 
-    {% endblock %}
+            <div class="row">
+
+                <div class="col-3">
+                    <div class="p-3 border bg-light">
+                        <h2>------- Filtres --------</h2>
+                        <a href='./entreprises'>Entreprises</a><BR>
+                        <a href='./formations'>Formations</a><BR>
+                    </div>
+                </div>
+                
+                <div class="col-9">
+                    <div class="p-3 border bg-light">
+                        <h2>--------------------------------------------- Contenu ---------------------------------------------</h2>
+                        <p>Liste des stages disponibles :</p>
+                        <ul>
+                            {% for stage in tabStages %}
+                                <li><a href=./stages/{{ stage }}>Stage {{ stage }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
 {% endblock %}
