@@ -13,7 +13,7 @@ class StagesController extends AbstractController
      */
     public function index($id): Response
     {
-        return $this->render('stages/index.html.twig', [
+        return $this->render('stages/stages.html.twig', [
             'controller_name' => 'StagesController',
             'id' => $id,
         ]);

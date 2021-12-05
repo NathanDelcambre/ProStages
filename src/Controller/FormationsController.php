@@ -13,7 +13,7 @@ class FormationsController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('formations/index.html.twig', [
+        return $this->render('formations/formations.html.twig', [
             'controller_name' => 'FormationsController',
         ]);
     }
