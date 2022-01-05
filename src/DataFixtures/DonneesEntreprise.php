@@ -10,9 +10,20 @@ class DonneesEntreprise extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
+        $faker = Faker\Factory::create('fr_FR');
 
+        $nbEntreprises = 10;
+
+        for($i=1; $i <= $nbEntreprises; $i=$i+1)
+        {
+            $entreprise1 = new Product();
+            $entreprise->setActivite();
+            $entreprise->setAdresse();
+            $entreprise->setNom();
+            $entreprise->setUrlSite();
+            $entreprise1->persist($entreprise);
+        }
+        
         $manager->flush();
     }
 }

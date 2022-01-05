@@ -10,14 +10,17 @@ class DonneesStage extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        //$stage1 = new Stage();
-        //$stage1->setCode("1");
-        //$stage1->setTitre("Stage en algorithmie");
-        //$stage1->setDescription("Chargé de résoudre une problème en algorithmie");
-        //$stage1->setEmail("algo@orange.fr");
+        $faker = Faker\Factory::create('fr_FR');
         
-        
-        //$manager->persist($stage1);
+        for($i=1; $i <= $nbEntreprises; $i=$i+1)
+        {
+            $stage = new Stage();
+            $stage->setCode("1");
+            $stage->setTitre("Stage en algorithmie");
+            $stage->setDescription("Chargé de résoudre une problème en algorithmie");
+            $stage->setEmail("algo@orange.fr");
+            $manager->persist($stage);
+        }
         //$manager->flush();
     }
 }
