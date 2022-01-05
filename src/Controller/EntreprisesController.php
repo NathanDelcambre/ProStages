@@ -20,7 +20,7 @@ class EntreprisesController extends AbstractController
        $repositoryEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
 
        // Récupérer les ressources enregistrées en BD
-       $ressourcesStagesParEntreprise = $repositoryStages->findByEntrepriseId($id);
+       $ressourcesStagesParEntreprise = $repositoryStages->findBy(["Entreprise" => $id]);
        $ressourcesEntreprise = $repositoryEntreprise->find($id);
 
        // Envoyer la ressource récupérée à la vue chargée de l'afficher

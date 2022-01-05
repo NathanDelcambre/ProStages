@@ -20,16 +20,15 @@
             
             <div class="col-10">
                 <div class="p-3 border bg-light">
-                    <h2>Cette page affiche la liste des stages proposés par la formation {{ ressourcesFormationParId.nomLong }}</h2><BR>
-                    {% for formation in tabFormations %}
+                    <h2>Cette page affiche la liste des stages proposés par la formation {{ ressourcesFormation.nomLong }}</h2><BR>
+                    {% for stage in ressourcesStagesParFormation %}
                         <div class="card mb-4">
                             <div class="card-header bg-dark">
-                                <a href="../../stages/A" class="text-white text-decoration-none"><h2>Le stage intitulé A</h2></a>
+                                <a href="../../stages/{{ stage.id }}" class="text-white text-decoration-none"><h2>{{ stage.titre }}</h2></a>
                             </div>
                             <div class="card-body">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><h6>Nom : A</li>
-                                    <li class="list-group-item"><h6>Entreprise : nomEntreprise</li>
+                                    <li class="list-group-item"><h6>Formation :  {{ressourcesEntreprise.nom}}</li>
                                 </ul>
                             </div>
                         </div><BR>
