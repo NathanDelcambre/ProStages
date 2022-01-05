@@ -22,52 +22,33 @@
                 <div class="col-3 offset-1">
                     <div class="p-3 border bg-light">
                         <h2>------------ Filtres ------------</h2>
-                        <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                <h5>Entreprises</h5><BR>
-                            </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                            <ul>
-                                {% for entreprise in tabEntreprises %}
-                                    <li><a href=./entreprises/{{ entreprise }}>{{ entreprise }}</a></li>
-                                {% endfor %}
-                            </ul>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="accordion" id="accordionExample2">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                                <h5>Formations</h5><BR>
-                            </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample2">
-                            <div class="accordion-body">
-                            <ul>
-                                {% for formation in tabFormations %}
-                                    <li><a href=./formations/{{ formation }}>{{ formation }}</a></li>
-                                {% endfor %}
-                            </ul>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
+                        <h3 class="text-blue">----------- Formations -----------</h3>
+                        {% for formation in ressourcesFormations %}
+                            <a href={{path('Formations',{id:formation.id})}} class="text-black text-decoration-none"><h5>{{ formation.nomLong }}</h5></a>
+                        {% endfor %}
+                        <h3 class="text-blue">----------- Entreprises -----------</h3>
+                        {% for entreprise in ressourcesEntreprises %}
+                            <a href={{path('Entreprises',{id:entreprise.id})}} class="text-black text-decoration-none"><h5>{{ entreprise.nom }}</h5></a>
+                        {% endfor %}    
                     </div>
                 </div>
                 
                 <div class="col-7">
                     <div class="p-3 border bg-light">
-                        <h2>---------------------------------- Contenu -------------------------------------</h2>
-                        <h3>Tous les stages disponibles :</h3>
+                        <h2>-------------------------- Tous les stages --------------------------------</h2>
                         <ul>
-                            {% for stage in tabStages %}
-                                <li><a href=./stages/{{ stage }}>Stage {{ stage }}</a></li>
+                            {% for stage in ressourcesStages %}
+                                <div class="card mb-4">
+                                    <div class="card-header bg-dark">
+                                        <a href=./stages/{{ stage.id }} class="text-white text-decoration-none"><h2>{{ stage.titre }}</h2></a>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item"><h6>Mail : {{ stage.email }}</li>
+                                        </ul>
+                                    </div>
+                                </div><BR>
+                                
                             {% endfor %}
                         </ul>
                     </div>

@@ -14,14 +14,13 @@ class FormationsController extends AbstractController
      */
     public function index($id): Response
     {
+        // Récupérer le repository de l'entité Ressource
+        $repositoryFormations = $this->getDoctrine()->getRepository(Formation::class);
 
-        $repositoryFormation = $this->getDoctrine()->getRepository(Formation::class);
-        $ressources = $repositoryFormation->findAll();
+        // Récupérer les ressources enregistrées en BD
+        $ressourcesFormationParId = $repositoryFormations->find($id);
 
-        return $this->render('formations/formations.html.twig', [
-            'controller_name' => 'FormationsController',
-            'id' => $id,
-            'ressources' => $ressources,
-        ]);
+        // Envoyer la ressource récupérée à la vue chargée de l'afficher
+        return $this->render('formations/formations.html.twig', ['ressourcesFormationParId' => $ressourcesFormationParId]);
     }
 }

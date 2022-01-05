@@ -17,9 +17,10 @@
         </div>
 
         <div class="row">
-            <div class="col-10 offset-1">
+            
+            <div class="col-10">
                 <div class="p-3 border bg-light">
-                    <h2>Cette page affiche la liste des stages dédiés à la formation '{{ id }}'</h2><BR>
+                    <h2>Cette page affiche la liste des stages proposés par la formation {{ ressourcesFormationParId.nomLong }}</h2><BR>
                     {% for formation in tabFormations %}
                         <div class="card mb-4">
                             <div class="card-header bg-dark">
@@ -35,8 +36,8 @@
                     {% endfor %}
                 </div>
             </div>
+            
         </div>
     </div>
-
 
 {% endblock %}

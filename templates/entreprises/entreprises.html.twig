@@ -17,26 +17,25 @@
         </div>
 
         <div class="row">
-            <div class="col-10 offset-1">
+            
+            <div class="col-10">
                 <div class="p-3 border bg-light">
-                 <h2>Cette page affiche la liste des stages proposés par '{{ id }}'</h2><BR>
-                    {% for entreprises in tabEntreprises %}
+                    <h2>Cette page affiche la liste des stages proposés par l'entreprise {{ ressourcesEntreprise.nom }}</h2><BR>
+                    {% for stage in ressourcesStagesParEntreprise %}
                         <div class="card mb-4">
-                        <div class="card-header bg-dark">
-                            <a href="../../stages/A" class="text-white text-decoration-none"><h2>Le stage intitulé A</h2></a>
-                        </div>
-                        <div class="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><h6>Nom : A</li>
-                            <li class="list-group-item"><h6>Formations : nomformations</li>
-                        </ul>
-                        </div>
+                            <div class="card-header bg-dark">
+                                <a href="../../stages/{{ stage.id }}" class="text-white text-decoration-none"><h2>{{ stage.titre }}</h2></a>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><h6>Nom : {{ stage.titre }} </li>
+                                    <li class="list-group-item"><h6>Entreprise : ressourcesEntreprise.nom</li>
+                                </ul>
+                            </div>
                         </div><BR>
                     {% endfor %}
                 </div>
             </div>
         </div>
-    </div>
-
 
 {% endblock %}
