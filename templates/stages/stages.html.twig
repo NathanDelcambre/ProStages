@@ -31,7 +31,7 @@
                         <li class="list-group-item"><h6>Id : {{ ressourceStage.id }}</li>
                         <li class="list-group-item"> <h6>Entreprise : {{ ressourceStage.Entreprise.nom }}</li>
                         <li class="list-group-item"> <h6>Activité : {{ ressourceStage.Entreprise.activite }}</li>
-                        <li class="list-group-item"><h6>Formations : activite</li>
+                        <li class="list-group-item">Formations : {% for formation in lesFormations %}<h6>{{ formation.nomLong }}{% endfor %}</li>
                         <li class="list-group-item"><h6>Mail de contact : {{ ressourceStage.email }}</li>
 
                         <div class="accordion" id="accordionExample">

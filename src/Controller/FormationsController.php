@@ -20,10 +20,13 @@ class FormationsController extends AbstractController
         $repositoryFormations = $this->getDoctrine()->getRepository(Formation::class);
 
         // Récupérer les ressources enregistrées en BD
-        $ressourcesStagesParFormation= $repositoryStages->findBy(["Formation" => $id]);
+
+        $ressourcesStagesParFormation = $repositoryStages->findAll();
         $ressourcesFormation = $repositoryFormations->find($id);
 
+        $lesStages = $ressourcesFormation->getFormations();
+
         // Envoyer la ressource récupérée à la vue chargée de l'afficher
-        return $this->render('formations/formations.html.twig', ['ressourcesStagesParFormation' => $ressourcesStagesParFormation, 'ressourcesFormation' => $ressourcesFormation]);
+        return $this->render('formations/formations.html.twig', ['ressourcesStagesParFormation' => $ressourcesStagesParFormation, 'ressourcesFormation' => $ressourcesFormation, 'lesStages' => $lesStages]);
     }
 }

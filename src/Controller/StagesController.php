@@ -16,10 +16,12 @@ class StagesController extends AbstractController
     {
         $repositoryStages = $this->getDoctrine()->getRepository(Stage::class);
         $ressourceStage = $repositoryStages->find($id);
+        $lesFormations = $ressourceStage->getFormation();
 
         return $this->render('stages/stages.html.twig', [
             'controller_name' => 'StagesController',
             'ressourceStage' => $ressourceStage,
+            'lesFormations' => $lesFormations,
         ]);
     }
 }
