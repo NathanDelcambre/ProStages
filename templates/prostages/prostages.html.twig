@@ -8,9 +8,9 @@
         <div class="container-fluid">
 
             <div class="row">
-                <div class="col-10 offset-1">
+                <div class="col-4 offset-4 text-center">
                     <div class="p-3 border bg-light">
-                        <h1>Bienvenue sur Prostages !</h1>
+                        <h1 class="text-danger">Bienvenue sur Prostages !</h1>
                     </div>
                 </div>
             </div>
@@ -19,14 +19,14 @@
 
             <div class="row">
 
-                <div class="col-3 offset-1">
+                <div class="col-3 offset-1 text-center">
                     <div class="p-3 border bg-light">
-                        <h2>------------ Filtres ------------</h2>
-                        <h3 class="text-blue">----------- Formations -----------</h3>
+                        <BR><h1>Filtres</h1><BR><hr><BR>
+                        <h3 class="border">Formations</h3><BR>
                         {% for formation in ressourcesFormations %}
                             <a href={{path('Formations',{id:formation.id})}} class="text-black text-decoration-none"><h5>{{ formation.nomLong }}</h5></a>
                         {% endfor %}
-                        <h3 class="text-blue">----------- Entreprises -----------</h3>
+                        <BR><hr><BR><h3 class="border">Entreprises</h3><BR>
                         {% for entreprise in ressourcesEntreprises %}
                             <a href={{path('Entreprises',{id:entreprise.id})}} class="text-black text-decoration-none"><h5>{{ entreprise.nom }}</h5></a>
                         {% endfor %}    
@@ -35,7 +35,7 @@
                 
                 <div class="col-7">
                     <div class="p-3 border bg-light">
-                        <h2>-------------------------- Tous les stages --------------------------------</h2>
+                        <BR><h1 class="text-center">Tous les stages</h1><BR><hr><BR>
                         <ul>
                             {% for stage in ressourcesStages %}
                                 <div class="card mb-4">
