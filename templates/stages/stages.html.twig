@@ -24,15 +24,15 @@
             <div class="col-10 offset-1">
                 <div class="card">
                     <div class="card-header">
-                        <h2>{{ ressourceStage.titre }}</h2>
+                        <h2>📝 {{ ressourceStage.titre }}</h2>
                     </div>
                     <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><h6>Id : {{ ressourceStage.id }}</li>
                         <li class="list-group-item"> <h6>Entreprise : {{ ressourceStage.Entreprise.nom }}</li>
                         <li class="list-group-item"> <h6>Activité : {{ ressourceStage.Entreprise.activite }}</li>
-                        <li class="list-group-item">Formations : {% for formation in lesFormations %}<h6>{{ formation.nomLong }}{% endfor %}</li>
-                        <li class="list-group-item"><h6>Mail de contact : {{ ressourceStage.email }}</li>
+                        <li class="list-group-item"><h6>Formations : {% for formation in lesFormations %}{{ formation.nomLong }}{% endfor %}</li>
+                        <li class="list-group-item"><h6>✉ Mail : {{ ressourceStage.email }}</li>
 
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
@@ -43,7 +43,7 @@
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <h3>{{ ressourceStage.description }}</h3>
+                                    <h5>{{ ressourceStage.description }}</h5>
                                 </div>
                                 </div>
                             </div>

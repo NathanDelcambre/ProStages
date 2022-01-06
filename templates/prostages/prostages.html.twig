@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-4 offset-4 text-center">
                     <div class="p-3 border bg-light">
-                        <h1 class="text-danger">Bienvenue sur Prostages !</h1>
+                        <h1 class="text-danger">✤ Bienvenue sur Prostages ! ✤</h1>
                     </div>
                 </div>
             </div>
@@ -21,12 +21,12 @@
 
                 <div class="col-3 offset-1 text-center">
                     <div class="p-3 border bg-light">
-                        <BR><h1>Filtres</h1><BR><hr><BR>
-                        <h3 class="border">Formations</h3><BR>
+                        <BR><h1>✽ Filtres ✽</h1><BR><hr><BR>
+                        <h3 class="border">📚 Formations</h3><BR>
                         {% for formation in ressourcesFormations %}
                             <a href={{path('Formations',{id:formation.id})}} class="text-black text-decoration-none"><h5>{{ formation.nomLong }}</h5></a>
                         {% endfor %}
-                        <BR><hr><BR><h3 class="border">Entreprises</h3><BR>
+                        <BR><hr><BR><h3 class="border">💻 Entreprises</h3><BR>
                         {% for entreprise in ressourcesEntreprises %}
                             <a href={{path('Entreprises',{id:entreprise.id})}} class="text-black text-decoration-none"><h5>{{ entreprise.nom }}</h5></a>
                         {% endfor %}    
@@ -35,16 +35,16 @@
                 
                 <div class="col-7">
                     <div class="p-3 border bg-light">
-                        <BR><h1 class="text-center">Tous les stages</h1><BR><hr><BR>
+                        <BR><h1 class="text-center">Tous les stages 💼</h1><BR><hr><BR>
                         <ul>
                             {% for stage in ressourcesStages %}
                                 <div class="card mb-4">
                                     <div class="card-header bg-dark">
-                                        <a href=./stages/{{ stage.id }} class="text-white text-decoration-none"><h2>{{ stage.titre }}</h2></a>
+                                        <a href=./stages/{{ stage.id }} class="text-white text-decoration-none"><h2>📝 {{ stage.titre }}</h2></a>
                                     </div>
                                     <div class="card-body">
                                         <ul class="list-group list-group-flush">
-                                            <li class="list-group-item"><h6>Mail : {{ stage.email }}</li>
+                                            <li class="list-group-item"><h6>✉ Mail : {{ stage.email }}</li>
                                         </ul>
                                     </div>
                                 </div><BR>
