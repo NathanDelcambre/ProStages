@@ -11,7 +11,7 @@
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="../">Accueil</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Stages > {{ id }}</li>
+                        <li class="breadcrumb-item active" aria-current="page">Stages > {{ ressourceStage.id }}</li>
                     </ol>
                 </nav>
             </div>
@@ -24,14 +24,14 @@
             <div class="col-10 offset-1">
                 <div class="card">
                     <div class="card-header">
-                        <h2>Le stage intitulé {{ id }}</h2>
+                        <h2>{{ ressourceStage.titre }}</h2>
                     </div>
                     <div class="card-body">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><h6>Nom : {{ id }}</li>
-                        <li class="list-group-item"> <h6>Activité : activité</li>
+                        <li class="list-group-item"><h6>Id : {{ ressourceStage.id }}</li>
+                        <li class="list-group-item"> <h6>Activité : activite</li>
                         <li class="list-group-item"><h6>Formations : formations</li>
-                        <li class="list-group-item"><h6>Mail de contact : mail@lecontact.fr</li>
+                        <li class="list-group-item"><h6>Mail de contact : {{ ressourceStage.email }}</li>
 
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
@@ -42,13 +42,7 @@
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <strong>Ici seront présentées les différentes missions</strong>
-                                    <ul>
-                                        <li>Mission 1</li>
-                                        <li>Mission 2</li>
-                                        <li>Mission 3</li>
-                                        <li>Mission 4</li>
-                                    </ul>
+                                    <h3>{{ ressourceStage.description }}</h3>
                                 </div>
                                 </div>
                             </div>
