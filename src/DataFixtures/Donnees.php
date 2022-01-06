@@ -17,13 +17,14 @@ class Donnees extends Fixture
         $lesNomsEntreprises = array("Microsoft", "Apple", "Orange", "SuperDry","Subway", "CocaCola", "SFR", "AirBus","BlackBerry","NavalGroup");
         $lesNomsFormations = array("DUT Informatique", "DUT Génie Civil", "LP Programmation", "Master Aéronautique","Master Biologie", "Master Chimie", "DUT Tech de Co", "DUT Génie Électrique","Centrale Nantes","Mines Nantes");
         $lesDiminutifsFormations = array("DUT Info", "DUT GC", "LP Prog", "Mast Aéro","Mast Bio", "Mast Chi", "DUT TC", "DUT GE","Cent Nan","Min Nan");
+        $lesActivites = array("Programmation", "Algorithmie", "Conception", "Développement","Création graphique", "Électronique", "Biochimie", "Aéronautique","Arithmétiques","Aéronavale");
         $lesEntreprises=array();
         $lesFormations=array();
 
         for($i=0; $i < count($lesNomsEntreprises); $i=$i+1)
         {
             $entreprise = new Entreprise();
-            $entreprise->setActivite($faker->safeEmail());
+            $entreprise->setActivite($lesActivites[rand(0,9)]);
             $entreprise->setAdresse($faker->streetAddress());
             $entreprise->setNom($lesNomsEntreprises[$i]);
             $entreprise->setUrlSite($faker->domainName());

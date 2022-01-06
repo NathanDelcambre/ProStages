@@ -29,8 +29,9 @@
                     <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><h6>Id : {{ ressourceStage.id }}</li>
-                        <li class="list-group-item"> <h6>Activité : activite</li>
-                        <li class="list-group-item"><h6>Formations : formations</li>
+                        <li class="list-group-item"> <h6>Entreprise : {{ ressourceStage.Entreprise.nom }}</li>
+                        <li class="list-group-item"> <h6>Activité : {{ ressourceStage.Entreprise.activite }}</li>
+                        <li class="list-group-item"><h6>Formations : activite</li>
                         <li class="list-group-item"><h6>Mail de contact : {{ ressourceStage.email }}</li>
 
                         <div class="accordion" id="accordionExample">
