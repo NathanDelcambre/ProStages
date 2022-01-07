@@ -17,8 +17,8 @@ class Donnees extends Fixture
 
         //Tableaux de données pour avoir certaines données cohérentes
         $lesNomsEntreprises = array("Microsoft", "Apple", "Orange", "SuperDry","Subway", "CocaCola", "SFR", "AirBus","BlackBerry","NavalGroup");
-        $lesNomsFormations = array("DUT Informatique", "DUT Génie Civil", "LP Programmation", "Master Aéronautique","Master Biologie", "Master Chimie", "DUT Tech de Co", "DUT Génie Électrique","Centrale Nantes","Mines Nantes");
-        $lesDiminutifsFormations = array("DUT Info", "DUT GC", "LP Prog", "Mast Aéro","Mast Bio", "Mast Chi", "DUT TC", "DUT GE","Cent Nan","Min Nan");
+        $lesNomsFormations = array("DUT Informatique", "DUT Génie Civil", "LP Programmation", "Master Aéronautique","Master Instrumentation", "Master système", "DUT Tech de Co", "DUT Génie Électrique","Centrale Nantes","Mines Nantes");
+        $lesDiminutifsFormations = array("DUT Info", "DUT GC", "LP Prog", "Mast Aéro","Mast Ins", "Mast Sys", "DUT TC", "DUT GE","Cent Nan","Min Nan");
         $lesActivites = array("Programmation", "Algorithmie", "Conception", "Développement","Création graphique", "Électronique", "Biochimie", "Aéronautique","Arithmétiques","Aéronavale");
         
         //Données pour la génération aléatoire d'un titre de stage
