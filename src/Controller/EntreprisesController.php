@@ -15,7 +15,7 @@ class EntreprisesController extends AbstractController
      */
     public function index($id): Response
     {
-       // Récupérer le repository de l'entité Ressource
+       // Récupérer les repository des entités Stage et Entreprise
        $repositoryStages = $this->getDoctrine()->getRepository(Stage::class);
        $repositoryEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
 

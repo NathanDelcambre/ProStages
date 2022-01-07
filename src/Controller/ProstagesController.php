@@ -16,12 +16,15 @@ class ProstagesController extends AbstractController
      */
     public function index(): Response
     {
+        // Récupérer le repository de Stage et récupération des données
         $repositoryStages = $this->getDoctrine()->getRepository(Stage::class);
         $ressourcesStages = $repositoryStages->findAll();
 
+        // Récupérer le repository de Formation et récupération des données
         $repositoryFormations = $this->getDoctrine()->getRepository(Formation::class);
         $ressourcesFormations = $repositoryFormations->findAll();
 
+        // Récupérer le repository de Entreprise et récupération des données
         $repositoryEntreprises = $this->getDoctrine()->getRepository(Entreprise::class);
         $ressourcesEntreprises = $repositoryEntreprises->findAll();
 

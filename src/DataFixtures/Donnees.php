@@ -17,14 +17,14 @@ class Donnees extends Fixture
 
         //Tableaux de données pour avoir certaines données cohérentes
         $lesNomsEntreprises = array("Microsoft", "Apple", "Orange", "SuperDry","Subway", "CocaCola", "SFR", "AirBus","BlackBerry","NavalGroup");
-        $lesNomsFormations = array("DUT Informatique", "DUT Génie Civil", "LP Programmation", "Master Aéronautique","Master Instrumentation", "Master système", "DUT Tech de Co", "DUT Génie Électrique","Centrale Nantes","Mines Nantes");
+        $lesNomsFormations = array("DUT Informatique", "DUT Génie Civil", "LP Programmation", "Master Aéronautique","Master Instrumentation", "Master Système", "DUT Tech de Co", "DUT Génie Électrique","Centrale Nantes","Mines Nantes");
         $lesDiminutifsFormations = array("DUT Info", "DUT GC", "LP Prog", "Mast Aéro","Mast Ins", "Mast Sys", "DUT TC", "DUT GE","Cent Nan","Min Nan");
         $lesActivites = array("Programmation", "Algorithmie", "Conception", "Développement","Création graphique", "Électronique", "Biochimie", "Aéronautique","Arithmétiques","Aéronavale");
         
         //Données pour la génération aléatoire d'un titre de stage
         $titre1 = array("Programmation", "Réalisation", "Conception", "Développement","Structuration", "Imagination", "Enrichissement", "Amélioration","Modification","Supervision");
         $titre2 = array(" d'un site web", " d'une application web", " d'un programme", " d'une application"," d'un réseau", " d'une base de données", " d'un système", " d'une interface"," d'un jeu"," d'une architecture");
-        $titre3 = array(" en Java.", " en Python.", " en C++.", " en CSS."," en Arduino.", " en C#.", " en série.", " puissant."," de calcul."," de fusion informatique.");
+        $titre3 = array(" en Java.", " en Python.", " en C++.", " en CSS."," en Arduino.", " en C#.", " en série.", " de puissance."," de calcul."," de fusion informatique.");
         
         //Tableau de recueil des données formations et entreprises
         $lesEntreprises=array();

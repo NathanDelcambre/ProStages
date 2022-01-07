@@ -15,15 +15,15 @@ class FormationsController extends AbstractController
      */
     public function index($id): Response
     {
-        // Récupérer le repository de l'entité Ressource
+        // Récupérer les repository des entités Stage et Formation
         $repositoryStages = $this->getDoctrine()->getRepository(Stage::class);
         $repositoryFormations = $this->getDoctrine()->getRepository(Formation::class);
 
         // Récupérer les ressources enregistrées en BD
-
         $ressourcesStagesParFormation = $repositoryStages->findAll();
         $ressourcesFormation = $repositoryFormations->find($id);
 
+        // Récupérer les formations des stages correspondant à la bonne formation
         $lesStages = $ressourcesFormation->getFormations();
 
         // Envoyer la ressource récupérée à la vue chargée de l'afficher
