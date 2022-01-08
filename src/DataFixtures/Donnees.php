@@ -62,7 +62,22 @@ class Donnees extends Fixture
             $stage->setDescription($faker->realText($maxNbChars = 250, $indexSize = 2));
             $stage->setEmail($faker->safeEmail());
             $stage->setEntreprise($lesEntreprises[rand(0,9)]);
-            $stage->addFormation($lesFormations[rand(0,9)]);
+
+            // Générer 1 ou 2 formations DIFFÉRENTES
+            $nbFormations = rand(1,2);
+            $numFormation = $faker->numberBetween(0,9);
+
+            if($nbFormations == 1){
+                $stage->addFormation($lesFormations[$numFormation]);   
+            }
+            else{
+                $stage->addFormation($lesFormations[$numFormation]);  // Ajout de la première formation
+                $lesFormations2 = $lesFormations;  // Copie du tableau initial
+                unset($lesFormations2[$numFormation]);  // Suppression de la formation déjà utilisée
+                $lesFormations2 = array_merge($lesFormations2);  // Mise à jour de l'indexation du tableau
+                $stage->addFormation($lesFormations[rand(0,8)]);  // Ajout de la seconde formation
+            }
+
             $manager->persist($stage);
         }
         $manager->flush();
