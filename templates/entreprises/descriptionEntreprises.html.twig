@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Formations{% endblock %}
+{% block title %}Description Entreprises{% endblock %}
 
 {% block body %}
     <div class="container-fluid">
@@ -10,7 +10,7 @@
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="../">Accueil</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Formations</li>
+                        <li class="breadcrumb-item active" aria-current="page">Entreprises</li>
                     </ol>
                 </nav>
             </div>
@@ -20,24 +20,24 @@
             
             <div class="col-10 offset-1">
                 <div class="p-3 border bg-light">
-                    <h2>Voici les stages proposés par la formation {{ ressourcesFormation.nomLong }}</h2><BR>
-                    {% for stage in lesStages %}
+                    <h2>Voici les entreprises qui proposent un stage</h2><BR>
+                    {% for entreprise in ressourcesEntreprise %}
                         <div class="card mb-4">
                             <div class="card-header bg-dark">
-                                <a href="../../stages/{{ stage.id }}" class="text-white text-decoration-none"><h2>📝 {{ stage.titre }}</h2></a>
+                                <h2 class="text-white">📝 {{ entreprise.nom }}</h2>
                             </div>
                             <div class="card-body">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><h6>📚 Formation : {{ ressourcesFormation.nomLong }}</li>
-                                    <li class="list-group-item"><h6>✉ Email : {{ stage.email }}</li>
+                                    <li class="list-group-item"><h6>🔨 Activité : {{entreprise.activite}}</li>
+                                    <li class="list-group-item"><h6>🏠 Adresse : {{entreprise.adresse}}</li>
+                                    <li class="list-group-item"><h6>🔗 URL : {{entreprise.UrlSite}}</li>
+                                    <li class="list-group-item"><a href={{path('Entreprises',{id:entreprise.id})}} class="text-black text-decoration-none"><h6>Voir les stages</a></li>
                                 </ul>
                             </div>
                         </div><BR>
                     {% endfor %}
                 </div>
             </div>
-            
         </div>
-    </div>
 
 {% endblock %}

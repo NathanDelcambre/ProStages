@@ -26,4 +26,17 @@ class EntreprisesController extends AbstractController
        // Envoyer la ressource récupérée à la vue chargée de l'afficher
        return $this->render('entreprises/entreprises.html.twig', ['ressourcesStagesParEntreprise' => $ressourcesStagesParEntreprise, 'ressourcesEntreprise' => $ressourcesEntreprise]);
     }
+
+    /**
+     * @Route("/entreprises/", name="DescriptionEntreprises")
+     */
+    public function descriptionEntreprises(): Response
+    {
+       // Récupérer les repository des entités Entreprise
+       $repositoryEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
+       $ressourcesEntreprise = $repositoryEntreprise->findAll();
+
+       // Envoyer la ressource récupérée à la vue chargée de l'afficher
+       return $this->render('entreprises/descriptionEntreprises.html.twig', ['ressourcesEntreprise' => $ressourcesEntreprise]);
+    }
 }

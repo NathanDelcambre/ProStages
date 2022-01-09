@@ -6,7 +6,7 @@
         <div class="container-fluid">
 
             <div class="row offset-1 mt-4">
-                <div class="col-5 text-center">
+                <div class="col-6 text-center">
                     <div class="p-3 border bg-light">
                         <h1 class="text-danger">✤ Bienvenue sur Prostages ! ✤</h1>
                     </div>
@@ -24,7 +24,8 @@
                         {% for formation in ressourcesFormations %}
                             <a href={{path('Formations',{id:formation.id})}} class="text-black text-decoration-none"><h5>{{ formation.nomLong }}</h5></a>
                         {% endfor %}
-                        <BR><hr><BR><h3 class="border">💻 Entreprises</h3><BR>
+                        <BR><hr><BR>
+                        <a class="text-black text-decoration-none" href={{path('DescriptionEntreprises')}}><h3 class="border">💻 Entreprises</h3></a><BR>
                         {% for entreprise in ressourcesEntreprises %}
                             <a href={{path('Entreprises',{id:entreprise.id})}} class="text-black text-decoration-none"><h5>{{ entreprise.nom }}</h5></a>
                         {% endfor %}    
