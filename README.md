@@ -1,4 +1,4 @@
-# TP1
+# ProStages
 Réalisation d'une application web permettant de trouver un stage selon une formation ou une entreprise.
 Découverte du Framework Symfony, création d'entités, twig, modèle twig, création de contrôleurs, fixtures et utilisation du composant Faker.
 
