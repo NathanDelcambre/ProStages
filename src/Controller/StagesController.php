@@ -14,11 +14,11 @@ class StagesController extends AbstractController
      */
     public function index($id): Response
     {
-        // Récupérer le repository de Stage et récupération du stage
+        // Récupérer le repository de Stage et récupération du stage en particulier
         $repositoryStages = $this->getDoctrine()->getRepository(Stage::class);
         $ressourceStage = $repositoryStages->find($id);
 
-        // Récupérer les formations du stage
+        // Récupérer les formations du stage pour les afficher plus facilement dans la vue
         $lesFormations = $ressourceStage->getFormation();
 
         return $this->render('stages/stages.html.twig', [
