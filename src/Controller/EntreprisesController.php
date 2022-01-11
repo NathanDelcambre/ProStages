@@ -22,9 +22,10 @@ class EntreprisesController extends AbstractController
        // Récupérer les ressources enregistrées en BD
        $ressourcesStagesParEntreprise = $repositoryStages->findBy(["Entreprise" => $id]);
        $ressourcesEntreprise = $repositoryEntreprise->find($id);
+       $nbStages = count($ressourcesEntreprise->getEntreprises()); //Si nbStages = 0 alors la vue affichera qu'il n'y a pas de stages pour cette entreprise
 
        // Envoyer la ressource récupérée à la vue chargée de l'afficher
-       return $this->render('entreprises/entreprises.html.twig', ['ressourcesStagesParEntreprise' => $ressourcesStagesParEntreprise, 'ressourcesEntreprise' => $ressourcesEntreprise]);
+       return $this->render('entreprises/entreprises.html.twig', ['nbStages' => $nbStages, 'ressourcesStagesParEntreprise' => $ressourcesStagesParEntreprise, 'ressourcesEntreprise' => $ressourcesEntreprise]);
     }
 
     /**

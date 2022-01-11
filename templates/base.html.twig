@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-    {% block css %}
-        <style> 
-            .body { 
-                background-color: rgb(241,237,236); 
-            } 
-            .barre {
-                background-color: rgb(50,50,50);
-                height: 3px;
-                width: 100%;
-            }
-        </style> 
-    {% endblock %}
+        {# Un peu de CSS sur les différentes parties du template #}
+            {% block css %}
+                <style> 
+                    .body { 
+                        background-color: rgb(241,237,236); 
+                    } 
+                    .barre {
+                        background-color: rgb(50,50,50);
+                        height: 3px;
+                        width: 100%;
+                    }
+                    .footer{
+                        position:relative;
+                        bottom:0;
+                        width:100%;
+                    }
+                </style> 
+            {% endblock %}
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,7 +39,7 @@
                 height: 150px;">
                 <div class="d-flex justify-content-center align-items-center h-100">
                     <div class="text-black">
-                        <h1 class="mb-3"><font size="7" face="Georgia, Arial">Prostages</font></h1>
+                        <h1><font size="7" face="Georgia, Arial">Prostages</font></h1>
                     </div>
                 </div>
                 </div>
@@ -44,7 +50,7 @@
     {% block body %}{% endblock %}
     </body>
 
-    <footer>
+    <footer class="footer">
         {% block footer %}
             <div class="p-5 border bg-light"; 
             height: 150px;">

@@ -20,20 +20,24 @@
             
             <div class="col-10 offset-1">
                 <div class="p-3 border bg-light">
-                    <h2>Voici les stages proposés par l'entreprise {{ ressourcesEntreprise.nom }}</h2><BR>
-                    {% for stage in ressourcesStagesParEntreprise %}
-                        <div class="card mb-4">
-                            <div class="card-header bg-dark">
-                                <a href={{path('stages',{id:stage.id})}} class="text-white text-decoration-none"><h2>📝 {{ stage.titre }}</h2></a>
-                            </div>
-                            <div class="card-body">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><h6>🏢 Entreprise : {{ressourcesEntreprise.nom}}</li>
-                                    <li class="list-group-item"><h6>🏠 Adresse : {{ressourcesEntreprise.adresse}}</li>
-                                </ul>
-                            </div>
-                        </div><BR>
-                    {% endfor %}
+                    {% if nbStages > 0 %}
+                        <h2>Voici les stages proposés par l'entreprise {{ ressourcesEntreprise.nom }}</h2><BR>
+                        {% for stage in ressourcesStagesParEntreprise %}
+                            <div class="card mb-4">
+                                <div class="card-header bg-dark">
+                                    <a href={{path('stages',{id:stage.id})}} class="text-white text-decoration-none"><h2>📝 {{ stage.titre }}</h2></a>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"><h6>🏢 Entreprise : {{ressourcesEntreprise.nom}}</li>
+                                        <li class="list-group-item"><h6>🏠 Adresse : {{ressourcesEntreprise.adresse}}</li>
+                                    </ul>
+                                </div>
+                            </div><BR>
+                        {% endfor %}
+                    {% else %}    
+                        <h2>Aucun stage n'est actuellement proposé par l'entreprise {{ ressourcesEntreprise.nom }}</h2>
+                    {% endif %}
                 </div>
             </div>
         </div>
