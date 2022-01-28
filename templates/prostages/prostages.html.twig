@@ -27,7 +27,7 @@
                         <BR><hr><BR>
                         <a class="text-black text-decoration-none" href={{path('DescriptionEntreprises')}}><h3 class="border">💻 Entreprises</h3></a><BR>
                         {% for entreprise in ressourcesEntreprises %}
-                            <a href={{path('Entreprises',{id:entreprise.id})}} class="text-black text-decoration-none"><h5>{{ entreprise.nom }}</h5></a>
+                            <a href={{path('Entreprises',{nom:entreprise.nom})}} class="text-black text-decoration-none"><h5>{{ entreprise.nom }}</h5></a>
                         {% endfor %}    
                     </div>
                 </div>

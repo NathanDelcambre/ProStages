@@ -20,8 +20,7 @@
             
             <div class="col-10 offset-1">
                 <div class="p-3 border bg-light">
-                    {% if nbStages > 0 %}
-                        <h2>Voici les stages proposés par l'entreprise {{ ressourcesEntreprise.nom }}</h2><BR>
+                        <h2>Voici les stages proposés par l'entreprise {{ nomEntreprise}}</h2><BR>
                         {% for stage in ressourcesStagesParEntreprise %}
                             <div class="card mb-4">
                                 <div class="card-header bg-dark">
@@ -29,15 +28,12 @@
                                 </div>
                                 <div class="card-body">
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><h6>🏢 Entreprise : {{ressourcesEntreprise.nom}}</li>
-                                        <li class="list-group-item"><h6>🏠 Adresse : {{ressourcesEntreprise.adresse}}</li>
+                                        <li class="list-group-item"><h6>🏢 Entreprise : {{stage.Entreprise.nom}}</li>
+                                        <li class="list-group-item"><h6>🏠 Adresse : {{stage.Entreprise.adresse}}</li>
                                     </ul>
                                 </div>
                             </div><BR>
                         {% endfor %}
-                    {% else %}    
-                        <h2>Aucun stage n'est actuellement proposé par l'entreprise {{ ressourcesEntreprise.nom }}</h2>
-                    {% endif %}
                 </div>
             </div>
         </div>

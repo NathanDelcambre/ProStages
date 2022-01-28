@@ -11,21 +11,19 @@ use App\Entity\Stage;
 class EntreprisesController extends AbstractController
 {
     /**
-     * @Route("/entreprises/{id}", name="Entreprises")
+     * @Route("/entreprises/{nom}", name="Entreprises")
      */
-    public function index($id): Response
+    public function index($nom): Response
     {
        // Récupérer les repository des entités Stage et Entreprise
        $repositoryStages = $this->getDoctrine()->getRepository(Stage::class);
        $repositoryEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
 
        // Récupérer les ressources enregistrées en BD
-       $ressourcesStagesParEntreprise = $repositoryStages->findBy(["Entreprise" => $id]);
-       $ressourcesEntreprise = $repositoryEntreprise->find($id);
-       $nbStages = count($ressourcesEntreprise->getEntreprises()); //Si nbStages = 0 alors la vue affichera qu'il n'y a pas de stages pour cette entreprise
-
+       $ressourcesStagesParEntreprise = $repositoryStages->trouverStagesEntreprise($nom);
+       $nomEntreprise = $nom;
        // Envoyer la ressource récupérée à la vue chargée de l'afficher
-       return $this->render('entreprises/entreprises.html.twig', ['nbStages' => $nbStages, 'ressourcesStagesParEntreprise' => $ressourcesStagesParEntreprise, 'ressourcesEntreprise' => $ressourcesEntreprise]);
+       return $this->render('entreprises/entreprises.html.twig', ['ressourcesStagesParEntreprise' => $ressourcesStagesParEntreprise , 'nomEntreprise' => $nomEntreprise]);
     }
 
     /**
