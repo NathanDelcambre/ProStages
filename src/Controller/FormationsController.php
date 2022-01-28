@@ -11,17 +11,17 @@ use App\Entity\Stage;
 class FormationsController extends AbstractController
 {
     /**
-     * @Route("/formations/{id}", name="Formations")
+     * @Route("/formations/{nomCourt}", name="Formations")
      */
-    public function index($id): Response
+    public function index($nomCourt): Response
     {
         // Récupérer les repository des entités Stage et Formation
         $repositoryStages = $this->getDoctrine()->getRepository(Stage::class);
         $repositoryFormations = $this->getDoctrine()->getRepository(Formation::class);
 
         // Récupérer les ressources enregistrées en BD
-        $ressourcesStagesParFormation = $repositoryStages->findAll();
-        $ressourcesFormation = $repositoryFormations->find($id);
+        $ressourcesStagesParFormation = $repositoryStages->trouverStagesFormation($nomCourt);
+        $ressourcesFormation = $repositoryFormations->findByNomCourt($nomCourt);
 
         // Récupérer les formations des stages correspondant à la bonne formation
         $lesStages = $ressourcesFormation->getFormations();
