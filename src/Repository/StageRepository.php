@@ -42,7 +42,6 @@ class StageRepository extends ServiceEntityRepository
         $requete = $gestionnaireEntite->createQuery('SELECT s FROM App\Entity\Stage s JOIN s.Formation f WHERE f.nomCourt = :val');
         $requete->setParameter('val',$value);
         return $requete->execute();
-        ;
     }
 
     // /**

@@ -21,12 +21,9 @@ class FormationsController extends AbstractController
 
         // Récupérer les ressources enregistrées en BD
         $ressourcesStagesParFormation = $repositoryStages->trouverStagesFormation($nomCourt);
-        $ressourcesFormation = $repositoryFormations->findByNomCourt($nomCourt);
 
-        // Récupérer les formations des stages correspondant à la bonne formation
-        $lesStages = $ressourcesFormation->getFormations();
 
         // Envoyer la ressource récupérée à la vue chargée de l'afficher
-        return $this->render('formations/formations.html.twig', ['ressourcesStagesParFormation' => $ressourcesStagesParFormation, 'ressourcesFormation' => $ressourcesFormation, 'lesStages' => $lesStages]);
+        return $this->render('formations/formations.html.twig', ['ressourcesStagesParFormation' => $ressourcesStagesParFormation,'nomFormation' => $nomCourt]);
     }
 }
