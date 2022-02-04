@@ -29,9 +29,11 @@
                         {% for entreprise in ressourcesEntreprises %}
                             <a href={{path('Entreprises',{nom:entreprise.nom})}} class="text-black text-decoration-none"><h5>{{ entreprise.nom }}</h5></a>
                         {% endfor %}    
+                        <hr><h5 class="text-center">Ajouter une entreprise</h5>
                     </div>
                 </div>
-                
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+
                 <div class="col-7">
                     <div class="p-3 border bg-light">
                         <BR><h1 class="text-center">Tous les stages 💼</h1><BR><hr><BR>
@@ -39,7 +41,7 @@
                             {% for stage in ressourcesStages %}
                                 <div class="card mb-4">
                                     <div class="card-header bg-dark">
-                                        <a href=./stages/{{ stage.id }} class="text-white text-decoration-none"><h3>📝 {{ stage.titre }}</h3></a>
+                                        <a href={{path('stages',{id:stage.id})}} class="text-white text-decoration-none"><h3>📝 {{ stage.titre }}</h3></a>
                                     </div>
                                     <div class="card-body">
                                         <ul class="list-group list-group-flush">
