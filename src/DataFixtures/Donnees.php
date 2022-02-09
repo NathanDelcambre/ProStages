@@ -37,7 +37,7 @@ class Donnees extends Fixture
             $entreprise->setActivite($lesActivites[rand(0,9)]);
             $entreprise->setAdresse($faker->streetAddress());
             $entreprise->setNom($lesNomsEntreprises[$i]);
-            $entreprise->setUrlSite($faker->domainName());
+            $entreprise->setUrlSite("http://".$faker->domainName());
             $lesEntreprises[$i]=$entreprise;    //Ajout des entreprises dans le tableau
             $manager->persist($entreprise);
         }

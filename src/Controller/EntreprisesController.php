@@ -46,7 +46,7 @@ class EntreprisesController extends AbstractController
     }
 
     /**
-     * @Route("/ajouterEntreprise", name="AjoutEntreprise")
+     * @Route("/ajouter_entreprise", name="AjoutEntreprise")
      */
     public function ajoutEntreprise(Request $requeteHttp, EntityManagerInterface $manager): Response
     {
@@ -76,7 +76,7 @@ class EntreprisesController extends AbstractController
     }
 
      /**
-     * @Route("/modifierEntreprise/{id}", name="ModifierEntreprise")
+     * @Route("/modifier_entreprise/{id}", name="ModifierEntreprise")
      */
     public function modifierEntreprise(Request $requeteHttp, EntityManagerInterface $manager, Entreprise $uneEntreprise): Response
     {
@@ -99,7 +99,7 @@ class EntreprisesController extends AbstractController
                 return $this->redirectToRoute('Accueil');
             }
 
-            return $this->render('entreprises/ajouterModifierEntreprise.html.twig', ['vueFormulaireEntreprise' => $formulaireEntreprise -> createView(),'action' => "modifier"]);
+            return $this->render('entreprises/ajouterModifierEntreprise.html.twig', ['vueFormulaireEntreprise' => $formulaireEntreprise -> createView(),'action' => "modifier",'entreprise' => $uneEntreprise]);
     }
 
 }
