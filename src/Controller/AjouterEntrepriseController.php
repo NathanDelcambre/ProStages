@@ -5,7 +5,7 @@ namespace App\Controller;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,7 +16,7 @@ class AjouterEntrepriseController extends AbstractController
     /**
     * @Route ("/ajouterEntreprise/" , name ="ajoutEntreprise")
     */
-    public function ajouterEntreprise(Request $requeteHttp, ObjectManager $manager)
+    public function ajouterEntreprise(Request $requeteHttp, EntityManagerInterface $manager)
     {
         // Création d'une ressource initialement vierge
         $entreprise = new Entreprise();
@@ -31,13 +31,13 @@ class AjouterEntrepriseController extends AbstractController
 
             $formulaireEntreprise->handleRequest($requeteHttp);
 
-            if ( $formulaireEntreprise->isSubmitted())
+            if($formulaireEntreprise->isSubmitted())
             {
                 // Enregistrer la ressource en BD
                 $manager->persist($entreprise);
                 $manager->flush();
                 // Rediriger l’utilisateur vers la page affichant la liste des ressources
-                return $this->redirectToRoute('/');
+                return $this->redirectToRoute('Accueil');
             }
 
             return $this->render('ajouter_entreprise/ajouterEntreprise.html.twig', ['vueFormulaireEntreprise' => $formulaireEntreprise -> createView()]);
