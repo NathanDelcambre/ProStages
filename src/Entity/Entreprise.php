@@ -22,26 +22,26 @@ class Entreprise
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank(message="L'activité doit être renseignée.")
+     * @Assert\NotBlank(message="⚠ L'activité doit être renseignée.")
      */
     private $activite;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank(message="L'adresse doit être renseignée.")
+     * @Assert\NotBlank(message="⚠ L'adresse doit être renseignée.")
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank(message="Le nom doit être renseigné.")
+     * @Assert\NotBlank(message="⚠ Le nom doit être renseigné.")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=60)
-     * @Assert\NotBlank(message="L'URL doit être renseignée.")
-     * @Assert\Url(message="La saisie doit respectée le format d'une URL.")
+     * @Assert\NotBlank(message="⚠ L'URL doit être renseignée.")
+     * @Assert\Url(message="⚠ La saisie doit respectée le format d'une URL.")
      */
     private $urlSite;
 
