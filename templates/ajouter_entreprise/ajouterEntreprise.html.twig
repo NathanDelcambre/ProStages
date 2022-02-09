@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une formation{% endblock %}
+
+{% block body %}
+
+<div class="row my-5"></div>
+
+<div class="row mb-5">
+            <div class="col-10 offset-1">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Ajouter une entreprise</h2>
+                    </div>
+                    <div class="card-body">
+                     {{ form_start(vueFormulaireEntreprise) }}
+                        {{ form_row(vueFormulaireEntreprise.activite) }}
+                        {{ form_row(vueFormulaireEntreprise.adresse) }}
+                        {{ form_row(vueFormulaireEntreprise.nom) }}
+                        {{ form_row(vueFormulaireEntreprise.url_site) }}
+                    {{ form_end(vueFormulaireEntreprise) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

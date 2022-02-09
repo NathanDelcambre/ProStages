@@ -21,7 +21,7 @@
                         {% for entreprise in ressourcesEntreprises %}
                             <a href={{path('Entreprises',{nom:entreprise.nom})}} class="text-black text-decoration-none"><h5>{{ entreprise.nom }}</h5></a>
                         {% endfor %}    
-                        <hr><h5 class="text-center">Ajouter une entreprise</h5>
+                        <hr><a href={{path('ajoutEntreprise')}} class="text-center">Ajouter une entreprise</a>
                     </div>
                 </div>
 
