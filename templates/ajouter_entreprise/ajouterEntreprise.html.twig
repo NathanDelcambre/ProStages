@@ -14,13 +14,18 @@
                     </div>
                     <div class="card-body">
                      {{ form_start(vueFormulaireEntreprise) }}
-                        {{ form_row(vueFormulaireEntreprise.activite) }}
-                        {{ form_row(vueFormulaireEntreprise.adresse) }}
-                        {{ form_row(vueFormulaireEntreprise.nom) }}
-                        {{ form_row(vueFormulaireEntreprise.url_site) }}
+                        {{ form_row(vueFormulaireEntreprise.activite, {'attr' =>{'placeholder'=>"Ex : Développement web"}}) }}
+                        {{ form_row(vueFormulaireEntreprise.adresse, {'attr' =>{'placeholder'=>"Ex : 10 rue des sapins"}}) }}
+                        {{ form_row(vueFormulaireEntreprise.nom, {'attr' =>{'placeholder'=>"Ex : Solana"}}) }}
+                        {{ form_row(vueFormulaireEntreprise.url_site, {'attr' =>{'placeholder'=>"Ex : solanaDev.com"}}) }}
+                        <button type="submit" class="btn btn-dark">Ajouter</button>
                     {{ form_end(vueFormulaireEntreprise) }}
                 </div>
             </div>
         </div>
     </div>
+
+<div class="row my-5"></div>
+<div class="row my-5"></div>
+
 {% endblock %}
