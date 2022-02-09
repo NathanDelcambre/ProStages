@@ -31,7 +31,8 @@
                                     <li class="list-group-item"><h6>🔨 Activité : {{entreprise.activite}}</li>
                                     <li class="list-group-item"><h6>🏠 Adresse : {{entreprise.adresse}}</li>
                                     <li class="list-group-item"><h6>🔗 URL : {{entreprise.UrlSite}}</li>
-                                    <li class="list-group-item"><a href={{path('Entreprises',{nom:entreprise.nom})}} class="text-black text-decoration-none"><h6>Voir les stages</a></li>
+                                    <li class="list-group-item"><a href={{path('Entreprises',{nom:entreprise.nom})}} class="text-start text-black"><h6>📋 Voir les stages proposés</a>
+                                    <a href={{path('ModifierEntreprise',{id:entreprise.id})}} class="text-end text-black text-decoration-none"><h6>Modifier ⚙</h6></a></li>
                                 </ul>
                             </div>
                         </div><BR>

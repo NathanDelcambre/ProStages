@@ -11,6 +11,8 @@ use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Url;
 
 class EntreprisesController extends AbstractController
 {
@@ -61,7 +63,7 @@ class EntreprisesController extends AbstractController
 
             $formulaireEntreprise->handleRequest($requeteHttp);
 
-            if($formulaireEntreprise->isSubmitted())
+            if($formulaireEntreprise->isSubmitted() && $formulaireEntreprise->isValid())
             {
                 // Enregistrer la ressource en BD
                 $manager->persist($entreprise);
@@ -70,7 +72,34 @@ class EntreprisesController extends AbstractController
                 return $this->redirectToRoute('Accueil');
             }
 
-            return $this->render('entreprises/ajouterEntreprise.html.twig', ['vueFormulaireEntreprise' => $formulaireEntreprise -> createView()]);
+            return $this->render('entreprises/ajouterModifierEntreprise.html.twig', ['vueFormulaireEntreprise' => $formulaireEntreprise -> createView(),'action' => "ajouter"]);
+    }
+
+     /**
+     * @Route("/modifierEntreprise/{id}", name="ModifierEntreprise")
+     */
+    public function modifierEntreprise(Request $requeteHttp, EntityManagerInterface $manager, Entreprise $uneEntreprise): Response
+    {
+        // création d'un objet formulaire pour ajouter une entreprise
+        $formulaireEntreprise=$this->createFormBuilder($uneEntreprise)
+            -> add('activite', TextType::class)
+            -> add('adresse', TextType::class)
+            -> add('nom', TextType::class)
+            -> add('url_site', UrlType::class)
+            -> getForm();
+
+            $formulaireEntreprise->handleRequest($requeteHttp);
+
+            if($formulaireEntreprise->isSubmitted() && $formulaireEntreprise->isValid())
+            {
+                // Enregistrer la ressource en BD
+                $manager->persist($uneEntreprise);
+                $manager->flush();
+                // Rediriger l’utilisateur vers la page affichant la liste des ressources
+                return $this->redirectToRoute('Accueil');
+            }
+
+            return $this->render('entreprises/ajouterModifierEntreprise.html.twig', ['vueFormulaireEntreprise' => $formulaireEntreprise -> createView(),'action' => "modifier"]);
     }
 
 }

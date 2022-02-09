@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% if action == "ajouter" %}
+Ajouter une formation
+{% else %}
+Modifier la formation
+{% endif %}
+{% endblock %}
+
+{% block body %}
+
+
+<div class="row">
+            <div class="col-10 offset-1 mt-4">
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../">Accueil</a></li>
+                        {% if action == "ajouter" %}
+                        <li class="breadcrumb-item" aria-current="page">AjouterEntreprise</li>
+                        {% else %}
+                        <li class="breadcrumb-item" aria-current="page">ModifierEntreprise</li>
+                        {% endif %}
+                    </ol>
+                </nav>
+            </div>
+        </div>
+<div class="row my-4"></div>
+<div class="row mb-5">
+            <div class="col-10 offset-1">
+                <div class="card">
+                    <div class="card-header">
+                        {% if action == "ajouter" %}
+                        <h2>Ajouter une entreprise</h2>
+                        {% else %}
+                        <h2>Modifier une entreprise</h2>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                     {{ form_start(vueFormulaireEntreprise, {'attr': {'novalidate': 'novalidate'}}) }}
+                        {{ form_row(vueFormulaireEntreprise.activite, {'attr':{'placeholder':"Ex : Développement web"}}) }}<br>
+                        {{ form_row(vueFormulaireEntreprise.adresse, {'attr':{'placeholder':"Ex : 10 rue des sapins"}}) }}<br>
+                        {{ form_row(vueFormulaireEntreprise.nom, {'attr':{'placeholder':"Ex : Solana"}}) }}<br>
+                        {{ form_row(vueFormulaireEntreprise.url_site, {'attr':{'placeholder':"Ex : solanaDev.com"}}) }}
+                        <br><br><button type="submit" class="btn btn-dark">Ajouter</button>
+                    {{ form_end(vueFormulaireEntreprise) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="row my-5"></div>
+<div class="row my-5"></div>
+
+{% endblock %}
