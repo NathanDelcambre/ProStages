@@ -23,7 +23,6 @@ class Entreprise
     /**
      * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank(message="⚠ L'activité doit être renseignée.")
-     * @Assert\Regex(pattern="#^[A-Za-z0-9]{4} #", message="⚠ L'activité de l'entreprise doit comporter au minimum 4 caractères.")
      */
     private $activite;
 
@@ -39,7 +38,7 @@ class Entreprise
     /**
      * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank(message="⚠ Le nom doit être renseigné.")
-     * @Assert\Regex(pattern="#^[A-Za-z0-9]{4} #", message="⚠ Le nom de l'entreprise doit comporter au minimum 4 caractères.")
+     * @Assert\Regex(pattern="#^[A-Za-z0-9]{4}#", message="⚠ Le nom de l'entreprise doit comporter au minimum 4 caractères.")
      */
     private $nom;
 
