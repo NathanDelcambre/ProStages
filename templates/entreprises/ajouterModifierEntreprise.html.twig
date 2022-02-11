@@ -18,9 +18,9 @@ Modifier la formation
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="../">Accueil</a></li>
                         {% if action == "ajouter" %}
-                        <li class="breadcrumb-item" aria-current="page">AjouterEntreprise</li>
+                        <li class="breadcrumb-item" aria-current="page">Ajouter une entreprise</li>
                         {% else %}
-                        <li class="breadcrumb-item" aria-current="page">Modifier</li>
+                        <li class="breadcrumb-item" aria-current="page">Modifier une entreprise</li>
                         <li class="breadcrumb-item" aria-current="page">{{ entreprise.nom }}</li>
                         {% endif %}
                     </ol>
@@ -43,7 +43,7 @@ Modifier la formation
                         {{ form_row(vueFormulaireEntreprise.activite, {'attr':{'placeholder':"Ex : Développement web"}}) }}<br>
                         {{ form_row(vueFormulaireEntreprise.adresse, {'attr':{'placeholder':"Ex : 10 rue des sapins"}}) }}<br>
                         {{ form_row(vueFormulaireEntreprise.nom, {'attr':{'placeholder':"Ex : Solana"}}) }}<br>
-                        {{ form_row(vueFormulaireEntreprise.url_site, {'attr':{'placeholder':"Ex : solanaDev.com"}}) }}
+                        {{ form_row(vueFormulaireEntreprise.urlSite, {'attr':{'placeholder':"Ex : http://www.solanaDev.com"}}) }}
                         {% if action == "ajouter" %}
                         <br><br><button type="submit" class="btn btn-dark">Ajouter</button>
                         {% else %}

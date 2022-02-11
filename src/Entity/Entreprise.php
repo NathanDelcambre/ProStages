@@ -23,18 +23,23 @@ class Entreprise
     /**
      * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank(message="⚠ L'activité doit être renseignée.")
+     * @Assert\Regex(pattern="#^[A-Za-z0-9]{4} #", message="⚠ L'activité de l'entreprise doit comporter au minimum 4 caractères.")
      */
     private $activite;
 
     /**
      * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank(message="⚠ L'adresse doit être renseignée.")
+     * @Assert\Regex(pattern="# [1-9][0-9]{0-2}( |bis)? #", message="⚠ Le numéro de rue semble incorrect.")
+     * @Assert\Regex(pattern="# [0-9]{2} #", message="⚠ Il semble y avoir un problème avec le code postal.")
+     * @Assert\Regex(pattern="# rue|avenue|boulebard|impasse|allée|place|route|voie #", message="⚠ Le type de route/voie semble incorrect.")
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank(message="⚠ Le nom doit être renseigné.")
+     * @Assert\Regex(pattern="#^[A-Za-z0-9]{4} #", message="⚠ Le nom de l'entreprise doit comporter au minimum 4 caractères.")
      */
     private $nom;
 
@@ -42,6 +47,7 @@ class Entreprise
      * @ORM\Column(type="string", length=60)
      * @Assert\NotBlank(message="⚠ L'URL doit être renseignée.")
      * @Assert\Url(message="⚠ La saisie doit respectée le format d'une URL.")
+     * @Assert\Regex(pattern="#http:\/\/www\.[A-Za-z0-9]+\.[A-Za-z0-9]{2,4}#", message="⚠ La saisie doit respectée le format d'une URL.")
      */
     private $urlSite;
 
