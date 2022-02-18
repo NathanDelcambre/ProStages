@@ -21,14 +21,17 @@
                         {% for entreprise in ressourcesEntreprises %}
                             <a href={{path('Entreprises',{nom:entreprise.nom})}} class="text-black text-decoration-none"><h5>{{ entreprise.nom }}</h5></a>
                         {% endfor %}    
-                        <hr><a href={{path('AjoutEntreprise')}} class="text-center">Ajouter une entreprise</a>
-                        <hr><a href={{path('AjoutFormation')}} class="text-center">Ajouter une formation</a>
+                        <hr><a href={{path('AjoutEntreprise')}} class="btn btn-outline-dark">Ajouter une entreprise</a>
+                        <hr><a href={{path('AjoutFormation')}} class="btn btn-outline-dark">Ajouter une formation</a>
                     </div>
                 </div>
 
                 <div class="col-7">
                     <div class="p-3 border bg-light">
                         <BR><h1 class="text-center">Tous les stages 💼</h1><BR><hr><BR>
+                        <div class="text-center">
+                            <a href={{path('AjoutStage')}} class="btn btn-outline-dark">Ajouter +</a><br><br><br>
+                        </div>
                         <ul>
                             {% for stage in ressourcesStages %}
                                 <div class="card mb-4">
