@@ -7,6 +7,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Formation;
 use App\Entity\Stage;
+use App\Form\FormationType;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
 
 class FormationsController extends AbstractController
 {
@@ -26,4 +29,30 @@ class FormationsController extends AbstractController
         // Envoyer la ressource récupérée à la vue chargée de l'afficher
         return $this->render('formations/formations.html.twig', ['ressourcesStagesParFormation' => $ressourcesStagesParFormation,'nomFormation' => $nomCourt]);
     }
+
+    /**
+     * @Route("/ajouter_formation", name="AjoutFormation")
+     */
+    public function ajoutFormation(Request $requeteHttp, EntityManagerInterface $manager): Response
+    {
+        // Création d'une ressource initialement vierge
+        $formation = new Formation();
+
+        // création d'un objet formulaire pour ajouter une entreprise
+        $formulaireFormation=$this->createForm(FormationType::class, $formation);
+
+            $formulaireFormation->handleRequest($requeteHttp);
+
+            if($formulaireFormation->isSubmitted() && $formulaireFormation->isValid())
+            {
+                // Enregistrer la ressource en BD
+                $manager->persist($formation);
+                $manager->flush();
+                // Rediriger l’utilisateur vers la page affichant la liste des ressources
+                return $this->redirectToRoute('Accueil');
+            }
+
+            return $this->render('formations/ajouterFormation.html.twig', ['vueFormulaireFormation' => $formulaireFormation -> createView()]);
+    }
+
 }

@@ -8,13 +8,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Entreprise;
 use App\Entity\Stage;
 use App\Form\EntrepriseType;
-use Symfony\Component\Form\Extension\Core\Type\UrlType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\Url;
 
 class EntreprisesController extends AbstractController
 {
