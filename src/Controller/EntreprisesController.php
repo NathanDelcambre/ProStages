@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Entreprise;
 use App\Entity\Stage;
+use App\Form\EntrepriseType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -55,61 +56,7 @@ class EntreprisesController extends AbstractController
         $entreprise = new Entreprise();
 
         // création d'un objet formulaire pour ajouter une entreprise
-        $formulaireEntreprise=$this->createFormBuilder($entreprise)
-            -> add('activite', ChoiceType::class,
-            array(
-                    'choices' => array(
-                        'Administration' => 'Administration',
-                        'Aéronautique' => 'Aéronautique',
-                        'Aéronavale' => 'Aéronavale',
-                        'Agroalimentaire' => 'Agroalimentaire',
-                        'Algorithmie' => 'Algorithmie',
-                        'Arithmétiques' => 'Arithmétiques',
-                        'Arts' => 'Arts',
-                        'Assurance' => 'Assurance',
-                        'Automobile' => 'Automobile',
-                        'Biochimie' => 'Biochimie',
-                        'Bois' => 'Bois',
-                        'Chaussures' => 'Chaussures',
-                        'Chaussures' => 'Chaussures',
-                        'Chimie' => 'Chimie',
-                        'Communication' => 'Communication',
-                        'Conception' => 'Conception',
-                        'Création graphique' => 'Création graphique',
-                        'Développement' => 'Développement',
-                        'Distribution' => 'Distribution',
-                        'Droit' => 'Droit',
-                        'Édition' => 'Édition',
-                        'Électronique' => 'Électronique',
-                        'Électricité' => 'Électricité',
-                        'Énergie' => 'Énergie',
-                        'Études' => 'Communication',
-                        'Fonction publique' => 'Fonction publique',
-                        'Immobilier' => 'Immobilier',
-                        'Imprimerie' => 'Imprimerie',
-                        'Industrie pharmaceutique' => 'Industrie pharmaceutique',
-                        'Logistique' => 'Logistique',
-                        'Machines et équipements' => 'Machines et équipements',
-                        'Métallurgie' => 'Métallurgie',
-                        'Multimédia' => 'Multimédia',
-                        'Industrie pharmaceutique' => 'Industrie pharmaceutique',
-                        'Industrie pharmaceutique' => 'Industrie pharmaceutique',
-                        'Plastique' => 'Plastique',
-                        'Programmation' => 'Programmation',
-                        'Restauration' => 'Restauration',
-                        'Santé' => 'Santé',
-                        'Services aux entreprises' => 'Services aux entreprises',
-                        'Sports' => 'Sports',
-                        'Télécoms' => 'Télécoms',
-                        'Textile' => 'Textile',
-                        'Toursime' => 'Toursime',
-                        'Transports' => 'Transports',
-                        'Université' => 'Université',
-                )))
-            -> add('adresse', TextType::class)
-            -> add('nom', TextType::class)
-            -> add('urlSite', UrlType::class)
-            -> getForm();
+        $formulaireEntreprise=$this->createForm(EntrepriseType::class, $entreprise);
 
             $formulaireEntreprise->handleRequest($requeteHttp);
 
@@ -131,62 +78,7 @@ class EntreprisesController extends AbstractController
     public function modifierEntreprise(Request $requeteHttp, EntityManagerInterface $manager, Entreprise $uneEntreprise): Response
     {
         // création d'un objet formulaire pour ajouter une entreprise
-        $formulaireEntreprise=$this->createFormBuilder($uneEntreprise)
-            -> add('activite', ChoiceType::class,
-            array(
-                    'choices' => array(
-                        'Administration' => 'Administration',
-                        'Aéronautique' => 'Aéronautique',
-                        'Aéronavale' => 'Aéronavale',
-                        'Agroalimentaire' => 'Agroalimentaire',
-                        'Algorithmie' => 'Algorithmie',
-                        'Arithmétiques' => 'Arithmétiques',
-                        'Arts' => 'Arts',
-                        'Assurance' => 'Assurance',
-                        'Automobile' => 'Automobile',
-                        'Biochimie' => 'Biochimie',
-                        'Bois' => 'Bois',
-                        'Chaussures' => 'Chaussures',
-                        'Chaussures' => 'Chaussures',
-                        'Chimie' => 'Chimie',
-                        'Communication' => 'Communication',
-                        'Conception' => 'Conception',
-                        'Création graphique' => 'Création graphique',
-                        'Développement' => 'Développement',
-                        'Distribution' => 'Distribution',
-                        'Droit' => 'Droit',
-                        'Édition' => 'Édition',
-                        'Électronique' => 'Électronique',
-                        'Électricité' => 'Électricité',
-                        'Énergie' => 'Énergie',
-                        'Études' => 'Communication',
-                        'Fonction publique' => 'Fonction publique',
-                        'Immobilier' => 'Immobilier',
-                        'Imprimerie' => 'Imprimerie',
-                        'Industrie pharmaceutique' => 'Industrie pharmaceutique',
-                        'Logistique' => 'Logistique',
-                        'Machines et équipements' => 'Machines et équipements',
-                        'Métallurgie' => 'Métallurgie',
-                        'Multimédia' => 'Multimédia',
-                        'Industrie pharmaceutique' => 'Industrie pharmaceutique',
-                        'Industrie pharmaceutique' => 'Industrie pharmaceutique',
-                        'Plastique' => 'Plastique',
-                        'Programmation' => 'Programmation',
-                        'Restauration' => 'Restauration',
-                        'Santé' => 'Santé',
-                        'Services aux entreprises' => 'Services aux entreprises',
-                        'Sports' => 'Sports',
-                        'Télécoms' => 'Télécoms',
-                        'Textile' => 'Textile',
-                        'Toursime' => 'Toursime',
-                        'Transports' => 'Transports',
-                        'Université' => 'Université',
-                )))
-            -> add('adresse', TextType::class)
-            -> add('nom', TextType::class)
-            -> add('urlSite', UrlType::class)
-            -> getForm();
-
+            $formulaireEntreprise=$this->createForm(EntrepriseType::class, $uneEntreprise);
             $formulaireEntreprise->handleRequest($requeteHttp);
 
             if($formulaireEntreprise->isSubmitted() && $formulaireEntreprise->isValid())
