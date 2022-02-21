@@ -29,9 +29,9 @@ class Entreprise
     /**
      * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank(message="⚠ L'adresse doit être renseignée.")
-     * @Assert\Regex(pattern="# [1-9]{1}[0-9]{0-2}( |bis)? #", message="⚠ Le numéro de rue semble incorrect.")
-     * @Assert\Regex(pattern="# [0-9]{2} #", message="⚠ Il semble y avoir un problème avec le code postal.")
-     * @Assert\Regex(pattern="# rue|avenue|boulebard|impasse|allée|place|route|voie #", message="⚠ Le type de route/voie semble incorrect.")
+     * @Assert\Regex(pattern="#^[0-9][1-9]{0,2}#", message="⚠ Le numéro de rue semble incorrect.")
+     * @Assert\Regex(pattern="# [0-9]{5}#", message="⚠ Il semble y avoir un problème avec le code postal.")
+     * @Assert\Regex(pattern="# rue | avenue | boulevard | impasse | allée | place | route | voie #", message="⚠ Le type de route/voie semble incorrect.")
      */
     private $adresse;
 
