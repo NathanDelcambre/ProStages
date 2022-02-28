@@ -7,11 +7,30 @@ use Doctrine\Persistence\ObjectManager;
 use App\Entity\Entreprise;
 use App\Entity\Formation;
 use App\Entity\Stage;
+use App\Entity\Utilisateur;
 
 class Donnees extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
+        //Création de deux utilisateurs
+
+        $nathan = new Utilisateur();
+        $nathan -> setPrenom("Nathan");
+        $nathan -> setNom("Delcambre");
+        $nathan -> setUsername("nathan");
+        $nathan -> setRoles(['ROLE_USER','ROLE_ADMIN']);
+        $nathan -> setPassword('$2y$15$EuB/Xw9GraHjxWaZNXkXku.5OVZR2Os.BbnOj2eoCgK2/Ra4bvwSm');
+        $manager -> persist($nathan);
+
+        $greg = new Utilisateur();
+        $greg -> setPrenom("Greg");
+        $greg -> setNom("Errecart");
+        $greg -> setUsername("greg");
+        $greg -> setRoles(['ROLE_USER']);
+        $greg -> setPassword('$2y$15$nNT3/pLC4yyk3RZIK5mAkOBANJAlKacVTciHKf.SkuVtg.PTSd.46');
+        $manager -> persist($greg);
+
         //Module pour générer des données aléatoires
         $faker = \Faker\Factory::create('fr_FR');
 

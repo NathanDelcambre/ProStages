@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '925ce79f83b0a897e2243808a8ef4ede18cf2494',
+        'reference' => '16b90371c2a547c3fddc964a24b119b3ae90b52f',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '925ce79f83b0a897e2243808a8ef4ede18cf2494',
+            'reference' => '16b90371c2a547c3fddc964a24b119b3ae90b52f',
             'dev_requirement' => false,
         ),
         'composer/package-versions-deprecated' => array(
@@ -1116,12 +1116,12 @@
             'dev_requirement' => false,
         ),
         'symfony/security-bundle' => array(
-            'pretty_version' => 'v4.4.34',
-            'version' => '4.4.34.0',
+            'pretty_version' => 'v4.4.38',
+            'version' => '4.4.38.0',
             'type' => 'symfony-bundle',
             'install_path' => __DIR__ . '/../symfony/security-bundle',
             'aliases' => array(),
-            'reference' => '18d4a6695b7daec4e62c31cede8cadc17499919b',
+            'reference' => '345015b537da5cb6a771bffafa0e6de14de361ed',
             'dev_requirement' => false,
         ),
         'symfony/security-core' => array(
