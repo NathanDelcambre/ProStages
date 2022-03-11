@@ -35,10 +35,10 @@ class FormationsController extends AbstractController
      */
     public function ajoutFormation(Request $requeteHttp, EntityManagerInterface $manager): Response
     {
-        // Création d'une ressource initialement vierge
+        // Création d'une formation initialement vierge
         $formation = new Formation();
 
-        // création d'un objet formulaire pour ajouter une entreprise
+        // création d'un objet formulaire pour ajouter une formation
         $formulaireFormation=$this->createForm(FormationType::class, $formation);
 
             $formulaireFormation->handleRequest($requeteHttp);
@@ -48,7 +48,7 @@ class FormationsController extends AbstractController
                 // Enregistrer la ressource en BD
                 $manager->persist($formation);
                 $manager->flush();
-                // Rediriger l’utilisateur vers la page affichant la liste des ressources
+                // Rediriger l’utilisateur
                 return $this->redirectToRoute('Accueil');
             }
 

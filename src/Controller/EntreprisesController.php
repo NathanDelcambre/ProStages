@@ -47,7 +47,7 @@ class EntreprisesController extends AbstractController
      */
     public function ajoutEntreprise(Request $requeteHttp, EntityManagerInterface $manager): Response
     {
-        // Création d'une ressource initialement vierge
+        // Création d'une entreprise initialement vierge
         $entreprise = new Entreprise();
 
         // création d'un objet formulaire pour ajouter une entreprise
@@ -60,7 +60,7 @@ class EntreprisesController extends AbstractController
                 // Enregistrer la ressource en BD
                 $manager->persist($entreprise);
                 $manager->flush();
-                // Rediriger l’utilisateur vers la page affichant la liste des ressources
+                // Rediriger l’utilisateur
                 return $this->redirectToRoute('Accueil');
             }
 
@@ -72,7 +72,7 @@ class EntreprisesController extends AbstractController
      */
     public function modifierEntreprise(Request $requeteHttp, EntityManagerInterface $manager, Entreprise $uneEntreprise): Response
     {
-        // création d'un objet formulaire pour ajouter une entreprise
+        // création d'un objet formulaire pour modifier une entreprise
             $formulaireEntreprise=$this->createForm(EntrepriseType::class, $uneEntreprise);
             $formulaireEntreprise->handleRequest($requeteHttp);
 
@@ -81,7 +81,7 @@ class EntreprisesController extends AbstractController
                 // Enregistrer la ressource en BD
                 $manager->persist($uneEntreprise);
                 $manager->flush();
-                // Rediriger l’utilisateur vers la page affichant la liste des ressources
+                // Rediriger l’utilisateur
                 return $this->redirectToRoute('Accueil');
             }
 

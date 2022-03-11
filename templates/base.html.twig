@@ -93,12 +93,17 @@
                         </a>
 
                         <a class="nav-link" href="{{path('app_logout')}}">
-                          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Simpleicons_Interface_power-symbol-1.svg/15px-Simpleicons_Interface_power-symbol-1.svg.png"> <b><font color="black">{{ app.user.prenom }} {{ app.user.nom }} - Déconnexion</font></b>
+                          <b><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Simpleicons_Interface_power-symbol-1.svg/15px-Simpleicons_Interface_power-symbol-1.svg.png"><font color="black"> {{ app.user.prenom }} {{ app.user.nom }} - Déconnexion</font></b>
                         </a>  
 
                       {% else %}
-                      {# Fonctionnalités pour l'utilisateur NON authentifié #}                      
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Simpleicons_Interface_power-symbol-1.svg/15px-Simpleicons_Interface_power-symbol-1.svg.png"><a class="nav-link" href="{{path('app_login')}}"><b><font color="black">Connexion</font></b></a>
+                      {# Fonctionnalités pour l'utilisateur NON authentifié #}   
+                       <a class="nav-link" href="{{path('inscription')}}">
+                            <b><font color="black">🖉 S'inscrire</font></b>
+                        </a>
+                      <a class="nav-link" href="{{path('app_login')}}">                   
+                        <b><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Simpleicons_Interface_power-symbol-1.svg/15px-Simpleicons_Interface_power-symbol-1.svg.png"><font color="black"> Connexion</font></b>
+                      </a>
                       {% endif %}
                   </div>
                 </nav>
