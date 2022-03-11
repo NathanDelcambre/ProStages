@@ -22,6 +22,7 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <title>{% block title %}Prostages{% endblock %}</title>
   
         {% block stylesheets %}
@@ -36,6 +37,7 @@
         <header>
             {% block header %}
             <div class="barre"></div>
+
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active data-bs-interval="2000"">
@@ -61,6 +63,50 @@
             {% endblock %}
 
         </header>
+
+{% block menu %}
+        <div class="row">
+              <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse  justify-content-between" id="bs-example-navbar-collapse-1">
+
+                      {# Fonctionnalités pour l'administrateur #}
+                      {% if is_granted('ROLE_ADMIN') %}
+                        <a class="nav-link" href="{{path('AjoutFormation')}}">
+                          <font color="#5D5C5C">Ajouter une formation</font>
+                        </a>
+
+                        <a class="nav-link" href="{{path('AjoutEntreprise')}}">
+                          <font color="#5D5C5C">Ajouter une entreprise</font>
+                        </a>
+                      
+                      {% endif %}
+
+                      {# Fonctionnalités pour l'utilisateur authentifié #}
+                      {% if is_granted('ROLE_USER') %}
+
+                      <a class="nav-link" href="{{path('AjoutStage')}}">
+                          <font color="#5D5C5C">Ajouter un stage</font>
+                        </a>
+
+                        <a class="nav-link" href="{{path('app_logout')}}">
+                          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Simpleicons_Interface_power-symbol-1.svg/15px-Simpleicons_Interface_power-symbol-1.svg.png"> <b><font color="black">{{ app.user.prenom }} {{ app.user.nom }} - Déconnexion</font></b>
+                        </a>  
+
+                      {% else %}
+                      {# Fonctionnalités pour l'utilisateur NON authentifié #}                      
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Simpleicons_Interface_power-symbol-1.svg/15px-Simpleicons_Interface_power-symbol-1.svg.png"><a class="nav-link" href="{{path('app_login')}}"><b><font color="black">Connexion</font></b></a>
+                      {% endif %}
+                  </div>
+                </nav>
+              </div>
+              <div class="barre"></div>
+            </div>
+          {% endblock %}
+
 
     {% block body %}{% endblock %}
     </body>
