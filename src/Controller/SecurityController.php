@@ -10,6 +10,7 @@ use App\Entity\Utilisateur;
 use App\Form\UtilisateurType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class SecurityController extends AbstractController
 {
@@ -42,7 +43,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/inscription", name="inscription")
      */
-    public function inscription(Request $requeteHttp, EntityManagerInterface $manager): Response
+    public function inscription(Request $requeteHttp, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder): Response
     {
         //Création d'un utilisateur vide
         $utilisateur = new Utilisateur();
@@ -52,14 +53,23 @@ class SecurityController extends AbstractController
 
             $formulaireUtilisateur->handleRequest($requeteHttp);
 
-            #if($formulaireUtilisateur->isSubmitted() && $formulaireUtilisateur->isValid())
-            #{
-            #    // Enregistrer l'utilisateur en BD
-            #    $manager->persist($utilisateur);
-            #    $manager->flush();
-            #    // Rediriger l’utilisateur
-            #    return $this->redirectToRoute('Accueil');
-            #}
+            if($formulaireUtilisateur->isSubmitted() && $formulaireUtilisateur->isValid())
+            {
+
+                //Attribuer un rôle au nouvel utilisateur
+
+                $utilisateur->setRoles(['ROLE_USER']);
+
+                //Encoder le mot de passe de l'utilisateur
+                $encodagePassword = $encoder->encodePassword($utilisateur, $utilisateur->getPassword());
+                $utilisateur->setPassword($encodagePassword);
+
+                // Enregistrer l'utilisateur en BD
+                $manager->persist($utilisateur);
+                $manager->flush();
+                // Rediriger l’utilisateur
+                return $this->redirectToRoute('app_login');
+            }
 
             return $this->render('security/inscription.html.twig', ['vueFormulaireUtilisateur' => $formulaireUtilisateur -> createView()]);
     }
