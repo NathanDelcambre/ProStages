@@ -11,8 +11,13 @@ Ajouter une formation
             <div class="col-10 offset-1 mt-4">
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="../">Accueil</a></li>                      
+                        <li class="breadcrumb-item"><a href="../">Accueil</a></li>
+                        {% if action == "ajouter" %}
                         <li class="breadcrumb-item" aria-current="page">Ajouter une formation</li>
+                        {% else %}
+                        <li class="breadcrumb-item" aria-current="page">Modifier une formation</li>
+                        <li class="breadcrumb-item" aria-current="page">{{ formation.nomCourt }}</li>
+                        {% endif %}
                     </ol>
                 </nav>
             </div>
@@ -22,13 +27,21 @@ Ajouter une formation
             <div class="col-8 offset-2">
                 <div class="card">
                     <div class="card-header">  
+                        {% if action == "ajouter" %}
                         <h2>Ajouter une formation</h2>
+                        {% else %}
+                        <h2>Modifier la formation {{ formation.nomCourt }}</h2>
+                        {% endif %}
                     </div>
                     <div class="card-body">
                      {{ form_start(vueFormulaireFormation, {'attr': {'novalidate': 'novalidate'}}) }}
                         {{ form_row(vueFormulaireFormation.nomCourt, {'attr':{'placeholder':"Ex : DUT Info"}}) }}<br>
                         {{ form_row(vueFormulaireFormation.nomLong, {'attr':{'placeholder':"Ex : Diplôme Universitaire de Technologie en informatique"}}) }}<br>                      
+                        {% if action == "ajouter" %}
                         <br><br><button type="submit" class="btn btn-dark">Ajouter</button>
+                        {% else %}
+                        <br><br><button type="submit" class="btn btn-dark">Modifier</button>
+                        {% endif %}
                     {{ form_end(vueFormulaireFormation) }}
                 </div>
             </div>

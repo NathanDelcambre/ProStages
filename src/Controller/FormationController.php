@@ -28,7 +28,7 @@ class FormationController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="formation_show", methods={"GET"})
+     * @Route("/voir/{id}", name="formation_show", methods={"GET"})
      */
     public function show(Formation $formation): Response
     {
@@ -38,7 +38,7 @@ class FormationController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="formation_edit", methods={"GET", "POST"})
+     * @Route("/{id}/modifier", name="formation_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Formation $uneFormation, EntityManagerInterface $manager): Response
     {
@@ -71,28 +71,6 @@ class FormationController extends AbstractController
         return $this->redirectToRoute('formation_index', [], Response::HTTP_SEE_OTHER);
     }
 
-
-    /**
-     * @Route("/modifier_formation/{id}", name="ModifierFormation")
-     */
-    public function modifierFormation(Request $requeteHttp, EntityManagerInterface $manager, Formation $uneFormation): Response
-    {
-        // création d'un objet formulaire pour modifier une formation
-            $formulaireFormation=$this->createForm(FormationType::class, $uneFormation);
-            $formulaireFormation->handleRequest($requeteHttp);
-
-            if($formulaireFormation->isSubmitted() && $formulaireFormation->isValid())
-            {
-                // Enregistrer la ressource en BD
-                $manager->persist($uneFormation);
-                $manager->flush();
-                // Rediriger l’utilisateur
-                return $this->redirectToRoute('Accueil');
-            }
-
-            return $this->render('formation/ajouterModifierFormation.html.twig', ['vueFormulaireFormation' => $formulaireFormation -> createView(),'action' => "modifier",'Formation' => $uneFormation]);
-    }
-
     /**
      * @Route("/ajouter_formation", name="AjoutFormation")
      */
@@ -115,6 +93,6 @@ class FormationController extends AbstractController
                 return $this->redirectToRoute('Accueil');
             }
 
-            return $this->render('formation/ajouterModifierFormation.html.twig', ['vueFormulaireFormation' => $formulaireFormation -> createView()]);
+            return $this->render('formation/ajouterModifierFormation.html.twig', ['vueFormulaireFormation' => $formulaireFormation -> createView(), 'action' => "ajouter",'formation' => $formation]);
     }
 }
