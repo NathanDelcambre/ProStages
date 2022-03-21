@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formation{% endblock %}
+
+{% block body %}
+<div class="row">
+            <div class="col-6 offset-1 mt-3">
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../">Accueil</a></li>
+                        <li class="breadcrumb-item" aria-current="page">Liste des formations</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+<div class="row my-4"></div>
+<div class="row mb-5">
+    <div class="col-6 offset-3">
+    <h1>{{ formation.nomLong }}</h1><br>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th class="bg-dark text-white border border-white text-center">Id</th>
+                <td class="bg-white text-dark border border-dark text-center">{{ formation.id }}</td>
+            </tr>
+            <tr>
+                <th class="bg-dark text-white border border-white text-center">Nom long</th>
+                <td class="bg-white text-black border border-dark text-center">{{ formation.nomLong }}</td>
+            </tr>
+            <tr>
+                <th class="bg-dark text-white border border-white text-center">Nom court</th>
+                <td class="bg-white text-black border border-dark text-center">{{ formation.nomCourt }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="text-black" href="{{ path('formation_index') }}">Retour à la liste</a><br><br>
+
+    <a class="text-black" href="{{ path('formation_edit', {'id': formation.id}) }}">📝 Éditer</a>
+
+    {{ include('formation/_delete_form.html.twig') }}
+
+
+    </div>
+</div>
+
+<div class="row my-5"></div>
+<div class="row my-5"></div>
+{% endblock %}

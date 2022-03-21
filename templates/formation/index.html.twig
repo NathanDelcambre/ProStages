@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formation{% endblock %}
+
+{% block body %}
+<div class="row">
+            <div class="col-10 offset-1 mt-4">
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../">Accueil</a></li>
+                        <li class="breadcrumb-item" aria-current="page">Liste des formations</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+<div class="row my-4"></div>
+<div class="row mb-5">
+    <div class="col-8 offset-2">
+    <h1>Les formations</h1><br>
+
+    <table class="table">
+        <thead>
+            <tr class="bg-dark text-white border border-dark text-center">
+                <th>Id</th>
+                <th>Nom long</th>
+                <th>Nom court</th>
+                <th>Consulter/Éditer</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formation in formations %}
+            <tr class="bg-light border border-dark text-center">
+                <td>{{ formation.id }}</td>
+                <td>{{ formation.nomLong }}</td>
+                <td>{{ formation.nomCourt }}</td>
+                <td>
+                    <a href="{{ path('formation_show', {'id': formation.id}) }}">🔎</a>
+                    <a href="{{ path('formation_edit', {'id': formation.id}) }}">📝</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucune formation trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <a href="{{ path('AjoutFormation') }}">+ Créer une nouvelle formation</a>
+
+    </div>
+</div>
+
+<div class="row my-5"></div>
+<div class="row my-5"></div>
+
+{% endblock %}

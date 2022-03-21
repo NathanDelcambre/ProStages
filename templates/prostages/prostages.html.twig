@@ -12,7 +12,7 @@
                 <div class="col-3 offset-1 text-center">
                     <div class="p-3 border bg-light">
                         <BR><h1>~ Filtres ~</h1><BR><hr><BR>
-                        <h3 class="border">📚 Formations</h3><BR>
+                        <a class="text-black text-decoration-none" href={{path('formation_index')}}><h3 class="border">📚 Formations</h3></a><BR>
                         {% for formation in ressourcesFormations %}
                             <a href={{path('Formations',{nomCourt:formation.nomCourt})}} class="text-black text-decoration-none"><h5>{{ formation.nomLong }}</h5></a>
                         {% endfor %}

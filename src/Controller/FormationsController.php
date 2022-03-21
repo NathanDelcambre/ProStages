@@ -27,7 +27,7 @@ class FormationsController extends AbstractController
 
 
         // Envoyer la ressource récupérée à la vue chargée de l'afficher
-        return $this->render('formations/formations.html.twig', ['ressourcesStagesParFormation' => $ressourcesStagesParFormation,'nomFormation' => $nomCourt]);
+        return $this->render('formation/formations.html.twig', ['ressourcesStagesParFormation' => $ressourcesStagesParFormation,'nomFormation' => $nomCourt]);
     }
 
     /**
@@ -52,7 +52,7 @@ class FormationsController extends AbstractController
                 return $this->redirectToRoute('Accueil');
             }
 
-            return $this->render('formations/ajouterFormation.html.twig', ['vueFormulaireFormation' => $formulaireFormation -> createView()]);
+            return $this->render('formation/ajouterFormation.html.twig', ['vueFormulaireFormation' => $formulaireFormation -> createView()]);
     }
 
 }
