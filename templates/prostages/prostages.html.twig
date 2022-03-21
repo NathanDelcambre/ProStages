@@ -14,7 +14,7 @@
                         <BR><h1>~ Filtres ~</h1><BR><hr><BR>
                         <a class="text-black text-decoration-none" href={{path('formation_index')}}><h3 class="border">📚 Formations</h3></a><BR>
                         {% for formation in ressourcesFormations %}
-                            <a href={{path('Formations',{nomCourt:formation.nomCourt})}} class="text-black text-decoration-none"><h5>{{ formation.nomLong }}</h5></a>
+                            <a href={{path('formation_show', {'id': formation.id})}} class="text-black text-decoration-none"><h5>{{ formation.nomLong }}</h5></a>
                         {% endfor %}
                         <BR><hr><BR>
                         <a class="text-black text-decoration-none" href={{path('DescriptionEntreprises')}}><h3 class="border">💻 Entreprises</h3></a><BR>

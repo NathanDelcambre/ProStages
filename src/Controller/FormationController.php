@@ -3,13 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Formation;
-use App\Form\Formation1Type;
 use App\Repository\FormationRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Stage;
+use App\Form\FormationType;
 
 /**
  * @Route("/formation")
@@ -39,20 +40,21 @@ class FormationController extends AbstractController
     /**
      * @Route("/{id}/edit", name="formation_edit", methods={"GET", "POST"})
      */
-    public function edit(Request $request, Formation $formation, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Formation $uneFormation, EntityManagerInterface $manager): Response
     {
-        $form = $this->createForm(Formation1Type::class, $formation);
-        $form->handleRequest($request);
+        $formulaireFormation = $this->createForm(FormationType::class, $uneFormation);
+        $formulaireFormation->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
+        if ($formulaireFormation->isSubmitted() && $formulaireFormation->isValid()) {
+            $manager->flush();
 
             return $this->redirectToRoute('formation_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('formation/edit.html.twig', [
-            'formation' => $formation,
-            'form' => $form->createView(),
+        return $this->render('formation/ajouterModifierFormation.html.twig', [
+            'vueFormulaireFormation' => $formulaireFormation -> createView(),
+            'action' => "modifier",
+            'formation' => $uneFormation,
         ]);
     }
 
@@ -67,5 +69,52 @@ class FormationController extends AbstractController
         }
 
         return $this->redirectToRoute('formation_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+
+    /**
+     * @Route("/modifier_formation/{id}", name="ModifierFormation")
+     */
+    public function modifierFormation(Request $requeteHttp, EntityManagerInterface $manager, Formation $uneFormation): Response
+    {
+        // création d'un objet formulaire pour modifier une formation
+            $formulaireFormation=$this->createForm(FormationType::class, $uneFormation);
+            $formulaireFormation->handleRequest($requeteHttp);
+
+            if($formulaireFormation->isSubmitted() && $formulaireFormation->isValid())
+            {
+                // Enregistrer la ressource en BD
+                $manager->persist($uneFormation);
+                $manager->flush();
+                // Rediriger l’utilisateur
+                return $this->redirectToRoute('Accueil');
+            }
+
+            return $this->render('formation/ajouterModifierFormation.html.twig', ['vueFormulaireFormation' => $formulaireFormation -> createView(),'action' => "modifier",'Formation' => $uneFormation]);
+    }
+
+    /**
+     * @Route("/ajouter_formation", name="AjoutFormation")
+     */
+    public function ajoutFormation(Request $requeteHttp, EntityManagerInterface $manager): Response
+    {
+        // Création d'une formation initialement vierge
+        $formation = new Formation();
+
+        // création d'un objet formulaire pour ajouter une formation
+        $formulaireFormation=$this->createForm(FormationType::class, $formation);
+
+            $formulaireFormation->handleRequest($requeteHttp);
+
+            if($formulaireFormation->isSubmitted() && $formulaireFormation->isValid())
+            {
+                // Enregistrer la ressource en BD
+                $manager->persist($formation);
+                $manager->flush();
+                // Rediriger l’utilisateur
+                return $this->redirectToRoute('Accueil');
+            }
+
+            return $this->render('formation/ajouterModifierFormation.html.twig', ['vueFormulaireFormation' => $formulaireFormation -> createView()]);
     }
 }
