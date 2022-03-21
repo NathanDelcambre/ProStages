@@ -35,6 +35,7 @@ security:
         - { path: ^/ajouter_formation, roles: [ROLE_USER, ROLE_ADMIN] }
         - { path: ^/formation/.*/modifier, roles: ROLE_ADMIN }
         - { path: ^/modifier_entreprise/.*, roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: ROLE_ADMIN }
 
     encoders:
         App\Entity\Utilisateur:
