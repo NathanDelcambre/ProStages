@@ -82,15 +82,16 @@
                         <a class="nav-link" href="{{path('AjoutEntreprise')}}">
                           <font color="#5D5C5C">Ajouter une entreprise</font>
                         </a>
+
+                        
+                      <a class="nav-link" href="{{path('AjoutStage')}}">
+                          <font color="#5D5C5C">Ajouter un stage</font>
+                        </a>
                       
                       {% endif %}
 
                       {# Fonctionnalités pour l'utilisateur authentifié #}
                       {% if is_granted('ROLE_USER') %}
-
-                      <a class="nav-link" href="{{path('AjoutStage')}}">
-                          <font color="#5D5C5C">Ajouter un stage</font>
-                        </a>
 
                         <a class="nav-link" href="{{path('app_logout')}}">
                           <b><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Simpleicons_Interface_power-symbol-1.svg/15px-Simpleicons_Interface_power-symbol-1.svg.png"><font color="black"> {{ app.user.prenom }} {{ app.user.nom }} - Déconnexion</font></b>
